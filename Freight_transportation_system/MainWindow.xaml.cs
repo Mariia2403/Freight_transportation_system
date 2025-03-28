@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Freight_transportation_system
 {
@@ -23,6 +11,40 @@ namespace Freight_transportation_system
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        //Якщо користувач натискає ліву кнопку миші по Border,
+        //вікно викликає this.DragMove(); — це стандартний WPF метод,
+        //який дозволяє перетягувати вікно за будь-який елемент,
+        //а не тільки за стандартну заголовну панель.
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private bool IsMaximized = false;
+        //Виконується при подвійному кліку лівою кнопкою.
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                if (!IsMaximized)
+                {
+                    this.WindowState = WindowState.Maximized;
+                    IsMaximized = true;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1080;
+                    this.Height = 720;
+                    IsMaximized = false;
+                }
+            }
         }
     }
 }

@@ -5,8 +5,103 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen">
+    <Border Background="#FAFAFF" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+         
+            <!--Menu logo-->
+
+            <Border
+                    Background="#1E2749" 
+                    CornerRadius="0,80,80,0"
+                    Height="600"
+                    Margin="0,40,0,40">
+                
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Margin="0,40,0,0">
+
+                         
+                         <Image Grid.Row="0"
+                                Source="ImagesIcon/transport.png"
+                                Width="150"
+                                Height="150"
+             
+                                Margin="0,0,0,50"/>     
+
+
+                        <!--Text-->
+
+                        <TextBlock Text="FREIGHT"
+                                   Grid.Row="1"
+                                   Foreground="#FAFAFF"
+                                   FontSize="30"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   FontFamily="Segoe UI"/>          
+
+                        <TextBlock Text="TRANSPORTATION"
+                                   Grid.Row="1"
+                                   Foreground="#FAFAFF"
+                                   FontSize="30"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   FontFamily="Segoe UI"/>  
+
+                        <TextBlock Text="MANAGEMENT"
+                                   Grid.Row="1"
+                                   Foreground="#FAFAFF"
+                                   FontSize="30"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   FontFamily="Segoe UI"/>
+
+                      </StackPanel>
+
+
+                    <!-- Зображення по центру знизу -->
+
+                            <Image Grid.Row="2"
+                                   Source="ImagesIcon/transport.png"
+                                   Width="150"
+                                   Height="150"
+             
+                                   Margin="0,0,0,20"/>  
+
+                </Grid>
+
+            </Border>
+
+            <TextBlock Text="Замовлення" 
+                       FontSize="40" 
+                       FontWeight="SemiBold" 
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Foreground="#30343F" 
+                       Margin="30,100"
+                       />
+
+            <Button Grid.Column="1" Margin="450,110,78,538">
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <TextBlock Text="Додати нове замовлення" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+
+    </Border>
 </Window>
