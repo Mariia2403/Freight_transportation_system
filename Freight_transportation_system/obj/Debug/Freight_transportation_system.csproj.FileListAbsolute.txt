@@ -23,3 +23,5 @@ D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_t
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\App.baml
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\Freight_.1613B455.Up2Date
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\AddOrderWindow.g.cs
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\AddOrderWindow.baml

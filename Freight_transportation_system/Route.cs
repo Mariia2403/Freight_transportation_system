@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Freight_transportation_system
+{
+    public class Route
+    {
+
+        //Route — зберігає етапи маршруту в Waypoints.
+        // 🔒 Приватні змінні
+        private string _startingPoint;
+        private string _arrivalPoint;
+        private List<string> _waypoints;
+        private double _distance;
+
+        // 🔓 Публічні властивості з get/set
+        public string StartingPoint
+        {
+            get => _startingPoint;
+            set => _startingPoint = value;
+        }
+
+        public string ArrivalPoint
+        {
+            get => _arrivalPoint;
+            set => _arrivalPoint = value;
+        }
+
+        public List<string> Waypoints
+        {
+            get => _waypoints;
+            set => _waypoints = value;
+        }
+
+        public double Distance
+        {
+            get => _distance;
+            set => _distance = value;
+        }
+
+        // 🔧 Конструктор (не обов’язково, але корисно мати)
+        public Route(string start, string end, List<string> waypoints, double distance)
+        {
+            _startingPoint = start;
+            _arrivalPoint = end;
+            _waypoints = waypoints;
+            _distance = distance;
+        }
+    }
+}

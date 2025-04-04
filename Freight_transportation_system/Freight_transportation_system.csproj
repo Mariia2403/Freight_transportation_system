@@ -66,10 +66,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Beads.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="Gazell.cs" />
+    <Compile Include="Graph.cs" />
+    <Compile Include="OrderRow.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="RouteSelector.cs" />
+    <Compile Include="Track.cs" />
+    <Compile Include="Transport.cs" />
+    <Page Include="AddOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddOrderWindow.xaml.cs">
+      <DependentUpon>AddOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
