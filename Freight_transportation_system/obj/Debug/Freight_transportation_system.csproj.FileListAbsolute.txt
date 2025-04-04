@@ -13,3 +13,13 @@ D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_t
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\Freight_transportation_system.csproj.CoreCompileInputs.cache
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\Freight_transportation_system.exe
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\Freight_transportation_system.pdb
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\MaterialDesignColors.dll
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\MaterialDesignColors.pdb
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\App.baml
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\Freight_.1613B455.Up2Date

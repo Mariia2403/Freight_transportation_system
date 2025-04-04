@@ -1,4 +1,5 @@
 ﻿<Window x:Class="Freight_transportation_system.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,6 +7,9 @@
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MyDividerBrush" Color="#273469"/>
+    </Window.Resources>
     <Border Background="#FAFAFF" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
         <Grid>
             <Grid.ColumnDefinitions>
@@ -13,15 +17,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-         
+
             <!--Menu logo-->
 
             <Border
-                    Background="#1E2749" 
+                    Background="#023e8a" 
                     CornerRadius="0,80,80,0"
                     Height="600"
                     Margin="0,40,0,40">
-                
+
                 <Grid Margin="0,0,0,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -34,13 +38,13 @@
                                 HorizontalAlignment="Center"
                                 Margin="0,40,0,0">
 
-                         
-                         <Image Grid.Row="0"
+
+                        <Image Grid.Row="0"
                                 Source="ImagesIcon/transport.png"
                                 Width="150"
                                 Height="150"
              
-                                Margin="0,0,0,50"/>     
+                                Margin="0,0,0,50"/>
 
 
                         <!--Text-->
@@ -51,7 +55,7 @@
                                    FontSize="30"
                                    FontWeight="SemiBold"
                                    TextAlignment="Center"
-                                   FontFamily="Segoe UI"/>          
+                                   FontFamily="Segoe UI"/>
 
                         <TextBlock Text="TRANSPORTATION"
                                    Grid.Row="1"
@@ -59,7 +63,7 @@
                                    FontSize="30"
                                    FontWeight="SemiBold"
                                    TextAlignment="Center"
-                                   FontFamily="Segoe UI"/>  
+                                   FontFamily="Segoe UI"/>
 
                         <TextBlock Text="MANAGEMENT"
                                    Grid.Row="1"
@@ -69,38 +73,91 @@
                                    TextAlignment="Center"
                                    FontFamily="Segoe UI"/>
 
-                      </StackPanel>
+                    </StackPanel>
 
 
                     <!-- Зображення по центру знизу -->
 
-                            <Image Grid.Row="2"
+                    <Image Grid.Row="2"
                                    Source="ImagesIcon/transport.png"
                                    Width="150"
                                    Height="150"
              
-                                   Margin="0,0,0,20"/>  
+                                   Margin="0,0,0,20"/>
 
                 </Grid>
 
             </Border>
 
-            <TextBlock Text="Замовлення" 
-                       FontSize="40" 
-                       FontWeight="SemiBold" 
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       HorizontalAlignment="Left"
-                       Foreground="#30343F" 
-                       Margin="30,100"
-                       />
+            <Grid Grid.Column="1" Margin="30,100,30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" Margin="450,110,78,538">
-                <StackPanel Orientation="Horizontal" Grid.Column="1">
-                    <TextBlock Text="Додати нове замовлення" />
+                <!-- Заголовок -->
+                <TextBlock Text="Замовлення"
+               FontSize="40"
+               FontWeight="SemiBold"
+               Foreground="#30343F"
+               Margin="0 0 0 10"
+               Grid.Row="0"
+                />
+
+                <!-- Кнопка Material Design -->
+                <Button Grid.Row="0"
+            Content="ДОДАТИ НОВЕ ЗАМОВЛЕННЯ"
+            Background="#E4D9FF"
+            Style="{StaticResource MaterialDesignOutlinedButton}"
+            Margin="0,10,0,10"
+            Padding="30,5"
+            HorizontalAlignment="Right"
+            FontSize="15"
+            FontWeight="Bold"
+            MinWidth="150"
+            Command="{Binding AddNewOrderCommand}" />
+
+                <!-- Сепаратор -->
+                <Separator Grid.Row="1"
+                   Background="{DynamicResource MyDividerBrush}" 
+                   Margin="0 10" />
+
+                <!-- Кнопка "Archived" -->
+                <StackPanel Grid.Row="2"
+                            Background="#E4D9FF"
+                            HorizontalAlignment="Left"
+                Orientation="Horizontal"
+                Margin="0,10,0,0">
+                    <Button Content="Archived"
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                Padding="20,5"
+                FontSize="15"
+                FontWeight="Bold"
+                Command="{Binding ArchiveCommand}" />
                 </StackPanel>
-            </Button>
 
+                <!-- Таблиця -->
+                <DataGrid Grid.Row="3"
+                          Background="#ade8f4"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              Margin="0,10,0,100"
+              Style="{StaticResource MaterialDesignDataGrid}"
+              RowHeaderWidth="0"
+              SelectionUnit="FullRow"
+              CanUserAddRows="False"
+              ItemsSource="{Binding Orders}">
+
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="Вибрати" Binding="{Binding IsSelected}" />
+                        <DataGridTextColumn Header="Назва" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Date}" />
+                        <DataGridTextColumn Header="Кількість" Binding="{Binding Quantity}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
 
     </Border>
