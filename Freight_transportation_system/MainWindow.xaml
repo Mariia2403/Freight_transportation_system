@@ -7,9 +7,11 @@
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen">
+    
     <Window.Resources>
         <SolidColorBrush x:Key="MyDividerBrush" Color="#273469"/>
     </Window.Resources>
+    
     <Border Background="#caf0f8" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
         <Grid>
             <Grid.ColumnDefinitions>
@@ -40,7 +42,7 @@
 
 
                         <Image Grid.Row="0"
-                                Source="ImagesIcon/transport.png"
+                                Source="ImagesIcon/sedan2.png"
                                 Width="150"
                                 Height="150"
              
@@ -79,7 +81,7 @@
                     <!-- Зображення по центру знизу -->
 
                     <Image Grid.Row="2"
-                                   Source="ImagesIcon/transport.png"
+                                   Source="ImagesIcon/sedan.png"
                                    Width="150"
                                    Height="150"
              

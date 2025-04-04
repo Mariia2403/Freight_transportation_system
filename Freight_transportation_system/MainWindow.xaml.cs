@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using System.IO;//набір класів для роботи з файлами, потоками і папками.
 
 namespace Freight_transportation_system
 {
@@ -22,9 +24,18 @@ namespace Freight_transportation_system
         public MainWindow()
         {
             InitializeComponent();
+            LoadOrders();
             DataContext = this; // зв'язуємо XAML з цим класом
                                 //Це найважливіший зв'язок! 
 
+
+
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            SaveOrders();
+            base.OnClosing(e);
         }
 
         //Якщо користувач натискає ліву кнопку миші по Border,
@@ -86,6 +97,25 @@ namespace Freight_transportation_system
         private void Archived_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void SaveOrders()
+        {
+            var json = JsonSerializer.Serialize(Orders);
+            File.WriteAllText("orders.json", json);//Клас File живе у просторі імен System.IO
+        }
+
+        private void LoadOrders()
+        {
+            if (File.Exists("orders.json"))
+            {
+                var json = File.ReadAllText("orders.json");
+                var loadedOrders = JsonSerializer.Deserialize<ObservableCollection<OrderRow>>(json);
+                if (loadedOrders != null)
+                {
+                    Orders = loadedOrders;
+                    DataContext = this; // Оновлюємо прив'язку, якщо Orders перезаписаний
+                }
+            }
         }
     }
 }

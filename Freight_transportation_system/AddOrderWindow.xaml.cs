@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,12 +24,43 @@ namespace Freight_transportation_system
 
         public Route currentRoute;
 
-        private RouteSelector routeSelector;
+        //РОЗКОМЕНТУЙ БО ТИ ЩЕ ЮЗАТИМИШ!!!
+       // private RouteSelector routeSelector;
         public AddOrderWindow()
         {
             InitializeComponent();
             //this.DialogResult = true;
             //this.Close();
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private bool IsMaximized = false;
+        //Виконується при подвійному кліку лівою кнопкою.
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                if (!IsMaximized)
+                {
+                    this.WindowState = WindowState.Maximized;
+                    IsMaximized = true;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1080;
+                    this.Height = 720;
+                    IsMaximized = false;
+                }
+            }
         }
     }
 }
