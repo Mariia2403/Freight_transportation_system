@@ -19,7 +19,7 @@ namespace Freight_transportation_system
         private readonly double maxVolume; // Ліміт об'єму
 
 
-        public bool ex = false;
+       
         public virtual double Weight
         {
             get => weight;
@@ -28,18 +28,17 @@ namespace Freight_transportation_system
                 if (value < 0)
                 {
 
-                    throw new ArgumentException("The value cannot be less than zero.");
+                    throw new ArgumentException("Значення не може бути меншим за нуль.");
 
                 }
                 if (value > maxWeight)
                 {
-                    ex = true;
-                    MessageBox.Show($"The volume cannot exceed the maximum limit of {maxVolume} m³.",
-                    "Input Error",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Warning);
+                  
 
-                    return;
+                    throw new ArgumentException($" Вага не може перевищувати максимальну межу {maxWeight} кг.");
+
+
+
                     //  throw new ArgumentException($"The weight cannot exceed the maximum limit of {MaxWeight} kg.");
 
                 }
@@ -56,14 +55,14 @@ namespace Freight_transportation_system
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("The value cannot be less than zero.");
+                    throw new ArgumentException("Значення не може бути меншим за нуль.");
 
                 }
                 if (value > maxVolume)
                 {
-                    ex = true;
-                    MessageBox.Show($"The volume cannot exceed the maximum limit of {maxVolume} m³.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                   
+                    throw new ArgumentException($"Об'єм не може перевищувати максимальний ліміт {maxVolume} m³.");
+                    
                     // throw new ArgumentException($"The volume cannot exceed the maximum limit of {MaxVolume} m³.");
 
                 }

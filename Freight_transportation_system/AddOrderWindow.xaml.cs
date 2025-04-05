@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Freight_transportation_system
 {
@@ -19,16 +21,18 @@ namespace Freight_transportation_system
     /// </summary>
     public partial class AddOrderWindow : Window
     {
-        public Transport SelectedTransport { get; private set; }
-        public Cargo Cargo { get; private set; }
+        public AddOrderViewModel ViewModel { get; }
 
-        public Route currentRoute;
+        private bool IsMaximized = false;//Що це 
+      
 
         //РОЗКОМЕНТУЙ БО ТИ ЩЕ ЮЗАТИМИШ!!!
        // private RouteSelector routeSelector;
         public AddOrderWindow()
         {
             InitializeComponent();
+            ViewModel = new AddOrderViewModel();
+            DataContext = ViewModel;
             //this.DialogResult = true;
             //this.Close();
         }
@@ -41,7 +45,6 @@ namespace Freight_transportation_system
             }
         }
 
-        private bool IsMaximized = false;
         //Виконується при подвійному кліку лівою кнопкою.
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -60,6 +63,58 @@ namespace Freight_transportation_system
                     this.Height = 720;
                     IsMaximized = false;
                 }
+            }
+        }
+
+        private void Save_Click_1(object sender, RoutedEventArgs e)
+        {
+            var vm = this.ViewModel;
+
+            string transportType = vm.SelectedTransportOption?.Name;// Присвоює те що обрав користувач 
+                       
+            string cargoType = vm.SelectedCargoType?.CargoType;//Присвоюємо те що обрав користувач 
+            double weight = double.Parse(ViewModel.WeightText);
+            double volume = double.Parse(ViewModel.VolumeText);
+
+            if (string.IsNullOrWhiteSpace(transportType))
+            {
+                MessageBox.Show("Оберіть тип транспорту!");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(cargoType))
+            {
+                MessageBox.Show("Оберіть тип вантажу!");
+                return;
+            }
+
+
+            Transport createdTransport;
+
+            try
+            {
+                switch (transportType)
+                {
+                    case "Газель":
+                        createdTransport = new Gazell(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        break;
+                    case "Фура":
+                        createdTransport = new Track(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        break;
+                    case "Бус":
+                        createdTransport = new Beads(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        break;
+                    default:
+                        MessageBox.Show("Невідомий тип транспорту!");
+                        return;
+                }
+
+                vm.CreatedTransport = createdTransport; // ← створений об'єкт зберігається у ViewModel
+                this.DialogResult = true;
+                this.Close();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Невірні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

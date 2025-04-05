@@ -18,6 +18,16 @@
             <Setter Property="Padding" Value="15"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
+
+        <Style x:Key="MyStyledTextBoxSecond" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <Setter Property="Foreground" Value="#FFF0F3"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="#FF8FA3"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
     </Window.Resources>
     
     <Border Background="#caf0f8" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
@@ -25,6 +35,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -105,6 +116,117 @@
                     
                 </Grid>
             </Border>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Vertical"
+                        Margin="20 30 10 30">
+
+                <!--Обов’язково Mode=TwoWay (щоб ComboBox міг оновити ViewModel)-->
+                <ComboBox ItemsSource="{Binding TransportTypes}"
+                          SelectedItem="{Binding SelectedTransportOption, Mode=TwoWay}"
+                          DisplayMemberPath="Name"
+                         
+                          Width="250"
+                          Height="45"
+                          Margin="10 30 10 10"
+                          materialDesign:HintAssist.Hint="🚚 Тип транспорту"
+                          
+                          Background="#FF4D6D"
+                          Foreground="White"
+                          FontWeight="Bold"
+                          Padding="10"
+                          >
+                    
+                    
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Background" Value="#800F2F" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+
+                    
+                </ComboBox>
+
+                <TextBlock Text="ВАНТАЖ" 
+                                   Foreground="#590D22"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   FontFamily="Segoe UI"  
+                                   HorizontalAlignment="Center"/>
+                
+                <ComboBox  ItemsSource="{Binding CargoType}"
+                           SelectedItem="{Binding SelectedCargoType, Mode=TwoWay}"
+                           DisplayMemberPath="CargoType"
+          
+                           Width="250"
+                           Height="45"
+                           Margin="10 10 "
+                           materialDesign:HintAssist.Hint="Вантаж"
+           
+                           Background="#FF4D6D"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Padding="10">
+ 
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Background" Value="#800F2F" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+
+                </ComboBox>
+                
+                <TextBlock Text="ВАГА:" 
+                                   Foreground="#590D22"
+                                   FontSize="18"
+                                   Margin="30 0"
+                                   FontFamily="Segoe UI" 
+                                   FontWeight="SemiBold"/>
+                
+
+                <TextBox  Style="{StaticResource MyStyledTextBoxSecond}" 
+                          Text="{Binding WeightText,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Margin="30 0"
+                          Padding="10"
+                          materialDesign:HintAssist.Hint="Поле для вводу"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Visible"
+                          materialDesign:TextFieldAssist.UnderlineBrush="White"/>
+                <TextBlock Text="{Binding WeightError}" Foreground="#800F2F" FontSize="12" Margin="10,2,0,0"/>
+                
+                <TextBlock Text="ОБ'ЄМ:" 
+                           Foreground="#590D22"
+                           FontSize="18"
+                           Margin="30 0"
+                           FontFamily="Segoe UI"  
+                           FontWeight="SemiBold"/>
+
+                <TextBox   Style="{StaticResource MyStyledTextBoxSecond}" 
+                           Text="{Binding VolumeText,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                           Margin="30 0"
+                           Padding="10"
+                           materialDesign:HintAssist.Hint="Поле для вводу"
+                           materialDesign:TextFieldAssist.DecorationVisibility="Visible"
+                           materialDesign:TextFieldAssist.UnderlineBrush="White"/>
+                <TextBlock Text="{Binding VolumeError}" Foreground="#800F2F" FontSize="12" Margin="10,2,0,0"/>
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="2"
+                        Orientation="Vertical"
+                        Margin="20 30 10 30" >
+                
+                <Button x:Name="Save" Content="Зберегти"
+                          Style="{StaticResource MaterialDesignOutlinedButton}"
+                          Padding="20,5"
+                          FontSize="15"
+                          FontWeight="Bold"
+                          Click="Save_Click_1" 
+                          Background="#FF4D6D"/>        
+            </StackPanel>
+            
         </Grid>
         
     </Border>

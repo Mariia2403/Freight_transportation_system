@@ -97,6 +97,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddOrderViewModel.cs" />
     <Compile Include="Beads.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Gazell.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="RouteSelector.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="Transport.cs" />
+    <Compile Include="TransportOption.cs" />
     <Page Include="AddOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

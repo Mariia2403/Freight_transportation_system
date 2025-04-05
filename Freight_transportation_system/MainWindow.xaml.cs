@@ -74,22 +74,24 @@ namespace Freight_transportation_system
 
         private void AddOrder_Click(object sender, RoutedEventArgs e)
         {
-            var orderForm = new AddOrderWindow();
+            var orderForm = new AddOrderWindow();//Тут мабуть прив'язка з ViewModel повинна бути
 
             if (orderForm.ShowDialog() == true) // ShowDialog повертає bool у WPF
             {
-                Transport transport = orderForm.SelectedTransport;
-                Route route = orderForm.currentRoute;
+                var vm = orderForm.ViewModel;
+
+                Transport transport = vm.CreatedTransport;
+               // Route route = vm.CurrentRoute;
 
                 Orders.Add(new OrderRow 
                 {
                     Transport = transport.GetTransportType(),
-                    Departure = route.StartingPoint,
-                    Arrival = route.ArrivalPoint,
-                    Sum = transport.CalculateTransportationCost().ToString("C")
+                   // Departure = route.StartingPoint,
+                   // Arrival = route.ArrivalPoint,
+                   // Sum = transport.CalculateTransportationCost().ToString("C")
                 }); //Додаємо новий рядок у таблицю на екрані (таблиця автоматично оновиться)
 
-                routeHistory.Add(route);//Додаємо інформацію про маршрут (для подальших дій,
+             //   routeHistory.Add(route);//Додаємо інформацію про маршрут (для подальших дій,
                                         //наприклад перегляду деталей)
             } 
         }

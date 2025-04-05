@@ -25,7 +25,7 @@ namespace Freight_transportation_system
 
         public override string GetTransportType()
         {
-            return "Track";
+            return "Фура";
         }
     }
 }
