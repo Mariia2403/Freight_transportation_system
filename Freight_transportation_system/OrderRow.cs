@@ -15,7 +15,7 @@ namespace Freight_transportation_system
         public string Departure { get; set; }
         public string Arrival { get; set; }
         public string Sum { get; set; }
-
+        public string ConditionType { get; set; }
 
         public bool IsSelected { get; set; }
         public string Weight    { get; set; }

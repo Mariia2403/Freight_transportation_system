@@ -91,6 +91,7 @@ namespace Freight_transportation_system
                     Transport = transport.GetTransportType(),
 
                     CargoType = vm.SelectedCargoType?.CargoType,
+                    ConditionType =transport.SpecialCondition,
 
                     Departure = transport.Route.StartingPoint,
                     Arrival = transport.Route.ArrivalPoint,

@@ -11,7 +11,7 @@ namespace Freight_transportation_system
         public abstract double MaxWeight { get; }
         public abstract double MaxVolume { get; }
 
-        public string SpecialCondition { get; set; } = "No necessary";
+        public string SpecialCondition { get; set; } 
 
         public Cargo Cargo { get; set; }
 
