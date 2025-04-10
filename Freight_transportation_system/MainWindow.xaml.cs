@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows;
@@ -74,21 +75,37 @@ namespace Freight_transportation_system
 
         private void AddOrder_Click(object sender, RoutedEventArgs e)
         {
-            var orderForm = new AddOrderWindow();//Тут мабуть прив'язка з ViewModel повинна бути
+            var orderForm = new AddOrderWindow();
 
             if (orderForm.ShowDialog() == true) // ShowDialog повертає bool у WPF
             {
                 var vm = orderForm.ViewModel;
 
                 Transport transport = vm.CreatedTransport;
-               // Route route = vm.CurrentRoute;
+                //Route route = vm.CurrentRoute;
 
-                Orders.Add(new OrderRow 
+                Orders.Add(new OrderRow
                 {
+                    Number = GenerateOrderNumber(),
+
                     Transport = transport.GetTransportType(),
-                   // Departure = route.StartingPoint,
-                   // Arrival = route.ArrivalPoint,
-                   // Sum = transport.CalculateTransportationCost().ToString("C")
+
+                    CargoType = vm.SelectedCargoType?.CargoType,
+
+                    Departure = transport.Route.StartingPoint,
+                    Arrival = transport.Route.ArrivalPoint,
+
+                    Sum = transport.CalculateTransportationCost().ToString("C"),
+
+                    Weight = vm.WeightText.ToString(),
+                    Volume = vm.VolumeText.ToString(),
+
+                    RouteObject = transport.Route,
+
+                    UserName = vm.UserName,
+                    LastName = vm.LastName,
+                    PhoneNumber = vm.PhoneNumber,
+
                 }); //Додаємо новий рядок у таблицю на екрані (таблиця автоматично оновиться)
 
              //   routeHistory.Add(route);//Додаємо інформацію про маршрут (для подальших дій,
@@ -116,6 +133,44 @@ namespace Freight_transportation_system
                 {
                     Orders = loadedOrders;
                     DataContext = this; // Оновлюємо прив'язку, якщо Orders перезаписаний
+                }
+            }
+        }
+
+        private string GenerateOrderNumber()
+        {
+            var random = new Random();
+            int number =  random.Next(10000000, 99999999); // 8 цифр
+            return number.ToString();
+        }
+        private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // Активуємо кнопку "Деталі", якщо щось вибрано
+            DetailsButton.IsEnabled = dataGridView1.SelectedItem != null;
+            DeleteButton.IsEnabled = dataGridView1.SelectedItem != null;
+        }
+
+        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem is OrderRow selectedOrder)
+            {
+                var detailsWindow = new OrderDetailsWindow(selectedOrder);
+                detailsWindow.ShowDialog();
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem is OrderRow selestedOrder)
+            { 
+            var result = MessageBox.Show("Ви впевнені, що хочете видалити це замовлення ? ",
+                                     "Підтвердження",
+                                     MessageBoxButton.YesNo,
+                                     MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Orders.Remove(selestedOrder);
                 }
             }
         }

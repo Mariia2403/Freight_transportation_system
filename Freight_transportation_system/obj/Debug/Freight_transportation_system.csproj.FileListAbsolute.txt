@@ -45,3 +45,5 @@ D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_t
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\System.Text.Json.xml
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\bin\Debug\System.ValueTuple.xml
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\OrderDetailsWindow.g.cs
+D:\Visual Studio (2)\2 курс\Курсова\Курсова на wpf\Freight_transportation_system\obj\Debug\OrderDetailsWindow.baml

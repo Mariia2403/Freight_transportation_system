@@ -15,5 +15,11 @@ namespace Freight_transportation_system
     {
         public string Name { get; set; }
         public string CargoType { get; set; }
+
+        public string ConditionType { get; set; }
+
+        public string CitiesOfDeparture { get; set; }
+
+        public string CitiesOfArrival { get; set; }
     }
 }

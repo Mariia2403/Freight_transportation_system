@@ -102,6 +102,9 @@
     <Compile Include="Cargo.cs" />
     <Compile Include="Gazell.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="OrderDetailsWindow.xaml.cs">
+      <DependentUpon>OrderDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrderRow.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="RouteSelector.cs" />
@@ -127,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

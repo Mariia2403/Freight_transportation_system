@@ -41,13 +41,16 @@ namespace Freight_transportation_system
             set => _distance = value;
         }
 
+        public Route()
+        {
+        }
         // 🔧 Конструктор (не обов’язково, але корисно мати)
         public Route(string start, string end, List<string> waypoints, double distance)
         {
-            _startingPoint = start;
-            _arrivalPoint = end;
-            _waypoints = waypoints;
-            _distance = distance;
+            StartingPoint = start;
+            ArrivalPoint = end;
+            Waypoints = waypoints;
+            Distance = distance;
         }
     }
 }

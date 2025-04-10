@@ -30,16 +30,16 @@ namespace Freight_transportation_system
             double factor;
             switch (SpecialCondition)
             {
-                case "Cooling":
+                case "Охолодження":
                     factor = 1.5;
                     break;
-                case "Amortization":
+                case "Амортизація":
                     factor = 1.2;
                     break;
-                case "Sealed":
+                case "Герметичний":
                     factor = 1.3;
                     break;
-                case "No necessary":
+                case "Не потрібно":
                     factor = 1.0;
                     break;
                 default:

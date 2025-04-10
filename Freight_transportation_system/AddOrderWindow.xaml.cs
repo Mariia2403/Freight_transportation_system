@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.IO;
-using System.Collections.ObjectModel;
 
 namespace Freight_transportation_system
 {
@@ -22,14 +10,18 @@ namespace Freight_transportation_system
     public partial class AddOrderWindow : Window
     {
         public AddOrderViewModel ViewModel { get; }
+        //Це публічна властивість ViewModel,
+        //яка дозволяє іншим класам (наприклад MainWindow)
+        //отримати доступ до даних, які зберігаються у AddOrderViewModel.
 
-        private bool IsMaximized = false;//Що це 
-      
+        private bool IsMaximized = false;
+
 
         //РОЗКОМЕНТУЙ БО ТИ ЩЕ ЮЗАТИМИШ!!!
-       // private RouteSelector routeSelector;
+        // private RouteSelector routeSelector;
         public AddOrderWindow()
         {
+            //ПОЯСНИТИ!
             InitializeComponent();
             ViewModel = new AddOrderViewModel();
             DataContext = ViewModel;
@@ -68,13 +60,30 @@ namespace Freight_transportation_system
 
         private void Save_Click_1(object sender, RoutedEventArgs e)
         {
-            var vm = this.ViewModel;
+            AddOrderViewModel vm = this.ViewModel;
+
+            vm.ValidateUserName();
+            vm.ValidateLastName();
+            vm.ValidatePhoneNumber();
+
+            if (!string.IsNullOrEmpty(vm.UserNameError) ||
+                !string.IsNullOrEmpty(vm.LastNameError) ||
+                !string.IsNullOrEmpty(vm.PhoneNumberError))
+            {
+                MessageBox.Show("Будь ласка, виправте помилки у формі.");
+                return;
+            }
 
             string transportType = vm.SelectedTransportOption?.Name;// Присвоює те що обрав користувач 
-                       
+
             string cargoType = vm.SelectedCargoType?.CargoType;//Присвоюємо те що обрав користувач 
-            double weight = double.Parse(ViewModel.WeightText);
-            double volume = double.Parse(ViewModel.VolumeText);
+
+            double weight = double.Parse(vm.WeightText);
+            double volume = double.Parse(vm.VolumeText);
+
+            string conditionType = vm.SelectedConditionType?.ConditionType;
+
+
 
             if (string.IsNullOrWhiteSpace(transportType))
             {
@@ -87,21 +96,47 @@ namespace Freight_transportation_system
                 return;
             }
 
+            //Пункт прибуття та відправлення
 
-            Transport createdTransport;
+            string start = vm.SelectedDepartureCity?.CitiesOfDeparture;
+            string end = vm.SelectedArrivalCity?.CitiesOfArrival;
+
+            if (string.IsNullOrWhiteSpace(start) || string.IsNullOrWhiteSpace(end))
+            {
+                MessageBox.Show("Оберіть пункти відправлення та прибуття!");
+                return;
+            }
+
+            if (start == end)
+            {
+                MessageBox.Show("Пункт відправлення і прибуття не можуть бути однаковими.");
+                return;
+            }
+
+            //Тут відбувається знаходження оптимального шляху
+            RouteSelector selector = new RouteSelector();
+            Route rout = selector.GetOptimalRoute(start, end);
+
+            //Збереження у viewModel
+           // vm.CurrentRoute = rout;
+
+            
+
 
             try
             {
+
+                Transport createdTransport;
                 switch (transportType)
                 {
                     case "Газель":
-                        createdTransport = new Gazell(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        createdTransport = new Gazell(transportType, weight, volume, conditionType, rout);
                         break;
                     case "Фура":
-                        createdTransport = new Track(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        createdTransport = new Track(transportType, weight, volume, conditionType, rout);
                         break;
                     case "Бус":
-                        createdTransport = new Beads(transportType, weight, volume, vm.Condition, vm.CurrentRoute);
+                        createdTransport = new Beads(transportType, weight, volume, conditionType, rout);
                         break;
                     default:
                         MessageBox.Show("Невідомий тип транспорту!");

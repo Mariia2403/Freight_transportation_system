@@ -15,7 +15,7 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Background" Value="#590D22"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Padding" Value="10 15 10 5"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
 
@@ -81,6 +81,7 @@
                                  materialDesign:HintAssist.Hint="Поле для вводу"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                                  materialDesign:TextFieldAssist.UnderlineBrush="White"/>
+                        <TextBlock Text="{Binding UserNameError}" Foreground="#FFF0F3" FontSize="12" Margin="10,2,0,0"/>
                     
                         <TextBlock Text="Прізвище:" 
                                    Foreground="#FAFAFF"
@@ -93,7 +94,7 @@
                                   materialDesign:HintAssist.Hint="Поле для вводу"
                                   materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                                   materialDesign:TextFieldAssist.UnderlineBrush="White"/>
-
+                        <TextBlock Text="{Binding LastNameError}" Foreground="#FFF0F3" FontSize="12" Margin="10,2,0,0"/>
                         <TextBlock Text="Номер телефону:" 
                                    Foreground="#FAFAFF"
                                    FontSize="25"
@@ -105,6 +106,7 @@
                                   materialDesign:HintAssist.Hint="Поле для вводу"
                                   materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                                   materialDesign:TextFieldAssist.UnderlineBrush="White"/>
+                        <TextBlock Text="{Binding PhoneNumberError}" Foreground="#FFF0F3" FontSize="12" Margin="10,2,0,0"/>
 
                         <Image   Source="ImagesIcon/sedan.png"
                                  Width="150"
@@ -127,14 +129,14 @@
                           DisplayMemberPath="Name"
                          
                           Width="250"
-                          Height="45"
+                          Height="30"
                           Margin="10 30 10 10"
                           materialDesign:HintAssist.Hint="🚚 Тип транспорту"
                           
                           Background="#FF4D6D"
                           Foreground="White"
                           FontWeight="Bold"
-                          Padding="10"
+                          Padding="5"
                           >
                     
                     
@@ -160,14 +162,14 @@
                            DisplayMemberPath="CargoType"
           
                            Width="250"
-                           Height="45"
+                           Height="30"
                            Margin="10 10 "
                            materialDesign:HintAssist.Hint="Вантаж"
            
                            Background="#FF4D6D"
                            Foreground="White"
                            FontWeight="Bold"
-                           Padding="10">
+                           Padding="5">
  
                     <ComboBox.ItemContainerStyle>
                         <Style TargetType="ComboBoxItem">
@@ -180,7 +182,7 @@
                 
                 <TextBlock Text="ВАГА:" 
                                    Foreground="#590D22"
-                                   FontSize="18"
+                                   FontSize="15"
                                    Margin="30 0"
                                    FontFamily="Segoe UI" 
                                    FontWeight="SemiBold"/>
@@ -189,7 +191,8 @@
                 <TextBox  Style="{StaticResource MyStyledTextBoxSecond}" 
                           Text="{Binding WeightText,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Margin="30 0"
-                          Padding="10"
+                          Padding="10 15 10 5"
+                          FontSize="14"
                           materialDesign:HintAssist.Hint="Поле для вводу"
                           materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                           materialDesign:TextFieldAssist.UnderlineBrush="White"/>
@@ -197,7 +200,7 @@
                 
                 <TextBlock Text="ОБ'ЄМ:" 
                            Foreground="#590D22"
-                           FontSize="18"
+                           FontSize="15"
                            Margin="30 0"
                            FontFamily="Segoe UI"  
                            FontWeight="SemiBold"/>
@@ -205,11 +208,135 @@
                 <TextBox   Style="{StaticResource MyStyledTextBoxSecond}" 
                            Text="{Binding VolumeText,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                            Margin="30 0"
-                           Padding="10"
+                           Padding="10 15 10 5"
+                           FontSize="14"
                            materialDesign:HintAssist.Hint="Поле для вводу"
                            materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                            materialDesign:TextFieldAssist.UnderlineBrush="White"/>
                 <TextBlock Text="{Binding VolumeError}" Foreground="#800F2F" FontSize="12" Margin="10,2,0,0"/>
+
+
+                    <TextBlock Text="СПЕЦІАЛЬНІ УМОВИ:" 
+                    Foreground="#590D22"
+                    FontSize="15"
+                    Margin="30 0"
+                    FontFamily="Segoe UI" 
+                    FontWeight="SemiBold"/>
+
+                <ComboBox   ItemsSource="{Binding ConditionType}"
+                            SelectedItem="{Binding SelectedConditionType, Mode=TwoWay}"
+                            DisplayMemberPath="ConditionType"
+          
+                            Width="250"
+                            Height="30"
+                            Margin="10 5 "
+                            materialDesign:HintAssist.Hint="Умови"
+           
+                            Background="#FF4D6D"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Padding="5">
+
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Background" Value="#800F2F" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+
+                </ComboBox>
+
+                <TextBlock Text="МАРШРУТ" 
+                     Foreground="#590D22"
+                     FontSize="18"
+                     FontWeight="Bold"
+                     FontFamily="Segoe UI"  
+                     HorizontalAlignment="Center"/>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock   Grid.Column="0"
+                                 Grid.Row="0"
+                                 Text="ВІДПРАВЛЕННЯ" 
+                                 HorizontalAlignment="Center"
+                                 Foreground="#590D22"
+                                 FontSize="10"
+                                 Margin="0"
+                                 FontFamily="Segoe UI" 
+                                 FontWeight="SemiBold"/>
+
+                    <TextBlock   Grid.Column="1"
+                                 Grid.Row="0"
+                                 Text="ПРИБУТТЯ" 
+                                 HorizontalAlignment="Center"
+                                 Foreground="#590D22"
+                                 FontSize="10"
+                                 Margin="0"
+                                 FontFamily="Segoe UI" 
+                                 FontWeight="SemiBold"/>
+
+                    <ComboBox    Grid.Column="0"
+                                 Grid.Row="1"
+                                 ItemsSource="{Binding CitiesOfDeparture}"
+                                 SelectedItem="{Binding SelectedDepartureCity, Mode=TwoWay}"
+                                 DisplayMemberPath="CitiesOfDeparture"
+          
+                                 Width="Auto"
+                                 Height="30"
+                                 Margin="10 5 "
+                                 materialDesign:HintAssist.Hint="З"
+           
+                                 Background="#FF4D6D"
+                                 Foreground="White"
+                                 FontWeight="Bold"
+                                 Padding="5">
+
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Background" Value="#800F2F" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+
+                    </ComboBox>
+
+                    <ComboBox     Grid.Column="1"
+                                  Grid.Row="1"
+                                  ItemsSource="{Binding CitiesOfArrival}"
+                                  SelectedItem="{Binding SelectedArrivalCity, Mode=TwoWay}"
+                                  DisplayMemberPath="CitiesOfArrival"
+          
+                                  Width="Auto"
+                                  Height="30"
+                                  Margin="10 5 "
+                                  materialDesign:HintAssist.Hint="До"
+           
+                                  Background="#FF4D6D"
+                                  Foreground="White"
+                                  FontWeight="Bold"
+                                  Padding="5">
+
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Background" Value="#800F2F" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+
+                    </ComboBox>
+                </Grid>
+               
+
 
 
             </StackPanel>

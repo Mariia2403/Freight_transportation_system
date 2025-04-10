@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen">
-    
+
     <Window.Resources>
         <SolidColorBrush x:Key="MyDividerBrush" Color="#273469"/>
     </Window.Resources>
-    
+
     <Border Background="#caf0f8" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
         <Grid>
             <Grid.ColumnDefinitions>
@@ -130,38 +130,113 @@
                 <StackPanel Grid.Row="2"
                             Background="#FF8FA3"
                             HorizontalAlignment="Left"
-                Orientation="Horizontal"
-                Margin="0,10,0,0">
+                            Orientation="Horizontal"
+                            Margin="0,10,0,0">
+
                     <Button x:Name="Archived" Content="Заархівовано"
-                Style="{StaticResource MaterialDesignOutlinedButton}"
-                Padding="20,5"
-                FontSize="15"
-                FontWeight="Bold"
-                Click="Archived_Click_1" />
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            Padding="20,5"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            Click="Archived_Click_1" />
+
+
+
                 </StackPanel>
 
                 <!-- Таблиця -->
                 <DataGrid x:Name="dataGridView1"
-          Grid.Row="3"
-          Background="#95d5b2"
-          AutoGenerateColumns="False"
-          HeadersVisibility="Column"
-          Margin="0,10,0,100"
-          Style="{StaticResource MaterialDesignDataGrid}"
-          RowHeaderWidth="0"
-          SelectionUnit="FullRow"
-          CanUserAddRows="False"
-          ItemsSource="{Binding Orders}"> <!--Ось це прив'язка нашої таблиці--> 
+                          Grid.Row="3"
+                          AutoGenerateColumns="False"
+                         
+                          Margin="0,10,0,90"
+                          Style="{StaticResource MaterialDesignDataGrid}"
+                          RowHeaderWidth="0"
+                          SelectionUnit="FullRow"
+                          CanUserAddRows="False"
+                          ItemsSource="{Binding Orders}"
+                          FontSize="14"
+                          FontFamily="Segoe UI"
+                          GridLinesVisibility="All"
+                          HorizontalGridLinesBrush="#264653"
+                          VerticalGridLinesBrush="#264653"
+                          ColumnHeaderHeight="40"
+                          RowHeight="35"
+                          SelectionMode="Single"
+                          IsReadOnly="True"
+                          Background="#93e1d8" SelectionChanged="dataGridView1_SelectionChanged">
+
+                    <!--Ось це прив'язка нашої таблиці-->
+
+
+                    <DataGrid.Resources>
+                        <!-- СТИЛЬ ЗАГОЛОВКІВ КОЛОНОК -->
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#264653"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="8"/>
+                        </Style>
+
+                        <!-- ПІДСВІЧЕННЯ ОБРАНОГО РЯДКА -->
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF758F"/>
+                                    <!-- світло-блакитний -->
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+
 
                     <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Вибрати" Binding="{Binding IsSelected}" />
-                        <DataGridTextColumn Header="Номер" Binding="{Binding Number}" />
-                        <DataGridTextColumn Header="Транспорт" Binding="{Binding Transport}" />
-                        <DataGridTextColumn Header="Відправлення" Binding="{Binding Departure}" />
-                        <DataGridTextColumn Header="Прибуття" Binding="{Binding Arrival}" />
-                        <DataGridTextColumn Header="Сума" Binding="{Binding Sum}" />
+                        <DataGridCheckBoxColumn Header="✓" Binding="{Binding IsSelected}" Width="Auto"/>
+                        <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
+                        <DataGridTextColumn Header="Транспорт" Binding="{Binding Transport}" Width="120"/>
+                        <DataGridTextColumn Header="Відправлення" Binding="{Binding Departure}" Width="150"/>
+                        <DataGridTextColumn Header="Прибуття" Binding="{Binding Arrival}" Width="150"/>
+                        <DataGridTextColumn Header="Сума" Binding="{Binding Sum}" Width="100"/>
                     </DataGrid.Columns>
+
+
                 </DataGrid>
+
+                <Button  Grid.Row="4"
+                         x:Name="DetailsButton"
+                         Content="Деталі"
+                         Margin="0,0,20,40"
+                         Width="150"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom" 
+                         Style="{StaticResource MaterialDesignOutlinedButton}"
+                         Background="#FF8FA3"
+                         FontSize="15"
+                         FontWeight="Bold"
+                        Click="DetailsButton_Click"
+                         IsEnabled="False"
+                         />
+                <Button Grid.Row="4"
+                        x:Name="DeleteButton"
+                        Content ="Видалити"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Margin="180,0,20,40"
+                        Width="150"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Background="#FF8FA3"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        IsEnabled="False"
+                        Click="DeleteButton_Click"/>
+
+
             </Grid>
         </Grid>
 
