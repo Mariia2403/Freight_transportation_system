@@ -18,14 +18,15 @@ namespace Freight_transportation_system
         }
         public override double CalculateTransportationCost()
         {
-            //Дорога в обслуговуванні, але ефективна на далекі відстані
-            double baseRate = Route.Distance < 300 ? 0.11 : 0.09;
-            return Cargo.Weight * Route.Distance * baseRate * GetConditionCostFactor(); ;
+            //Дорога в обслуговуванні, але ефективна на далекі відстані !!!!!!!!!!!!!! змінити рядки
+           double baseRate = Route.Distance < 300 ? 0.11 : 0.09;
+           return Cargo.Weight * Route.Distance * baseRate * GetConditionCostFactor(); ;
+           // return Cargo.Weight * GetConditionCostFactor(); ;
         }
 
         public override string GetTransportType()
         {
-            return "Track";
+            return "Фура";
         }
     }
 }

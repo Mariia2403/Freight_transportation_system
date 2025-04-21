@@ -24,7 +24,7 @@ namespace Freight_transportation_system
         }
         public override string GetTransportType()
         {
-            return "Gazell";
+            return "Газель";
         }
     }
 }

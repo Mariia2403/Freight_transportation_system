@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using System;
+using System.Linq;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using System.IO;//набір класів для роботи з файлами, потоками і папками.
 
 namespace Freight_transportation_system
 {
@@ -22,9 +26,18 @@ namespace Freight_transportation_system
         public MainWindow()
         {
             InitializeComponent();
+            LoadOrders();
             DataContext = this; // зв'язуємо XAML з цим класом
                                 //Це найважливіший зв'язок! 
 
+
+
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            SaveOrders();
+            base.OnClosing(e);
         }
 
         //Якщо користувач натискає ліву кнопку миші по Border,
@@ -65,27 +78,109 @@ namespace Freight_transportation_system
         {
             var orderForm = new AddOrderWindow();
 
-            if (orderForm.ShowDialog() == true) // ShowDialog повертає bool у WPF
+            if (orderForm.ShowDialog() == true)
             {
-                Transport transport = orderForm.SelectedTransport;
-                Route route = orderForm.currentRoute;
+                var vm = orderForm.ViewModel;
+                var transport = vm.CreatedTransport;
 
-                Orders.Add(new OrderRow 
+                var dto = new OrderDTO
                 {
+                    CreatedAt = DateTime.Now,
+                    Number = GenerateOrderNumber(),
                     Transport = transport.GetTransportType(),
-                    Departure = route.StartingPoint,
-                    Arrival = route.ArrivalPoint,
-                    Sum = transport.CalculateTransportationCost().ToString("C")
-                }); //Додаємо новий рядок у таблицю на екрані (таблиця автоматично оновиться)
+                    CargoType = vm.SelectedCargoType?.CargoType,
+                    ConditionType = transport.SpecialCondition,
+                    Departure = transport.Route.StartingPoint,
+                    Arrival = transport.Route.ArrivalPoint,
+                    Sum = transport.CalculateTransportationCost().ToString("C"),
+                    Weight = vm.WeightText,
+                    Volume = vm.VolumeText,
+                    RouteObject = transport.Route,
+                    UserName = vm.UserName,
+                    LastName = vm.LastName,
+                    PhoneNumber = vm.PhoneNumber,
+                    DeliveryStatus = DeliveryStatus.Очікується
+                };
 
-                routeHistory.Add(route);//Додаємо інформацію про маршрут (для подальших дій,
-                                        //наприклад перегляду деталей)
-            } 
+                Orders.Add(OrderRow.FromDTO(dto));
+                routeHistory.Add(transport.Route);
+            }
         }
 
         private void Archived_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void SaveOrders()
+        {
+            var dtos = Orders.Select(o => o.ToDTO()).ToList();
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+            };
+
+            var json = JsonSerializer.Serialize(dtos, options);
+            File.WriteAllText("orders.json", json);
+        }
+
+        private void LoadOrders()
+        {
+            if (File.Exists("orders.json"))
+            {
+                var json = File.ReadAllText("orders.json");
+
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+                };
+
+                var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
+                if (loadedDtos != null)
+                {
+                    Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
+                    DataContext = this;
+                }
+            }
+        }
+
+        private string GenerateOrderNumber()
+        {
+            var random = new Random();
+            int number =  random.Next(10000000, 99999999); // 8 цифр
+            return number.ToString();
+        }
+        private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // Активуємо кнопку "Деталі", якщо щось вибрано
+            DetailsButton.IsEnabled = dataGridView1.SelectedItem != null;
+            DeleteButton.IsEnabled = dataGridView1.SelectedItem != null;
+        }
+
+        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem is OrderRow selectedOrder)
+            {
+                var detailsWindow = new OrderDetailsWindow(selectedOrder);
+                detailsWindow.ShowDialog();
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem is OrderRow selestedOrder)
+            { 
+            var result = MessageBox.Show("Ви впевнені, що хочете видалити це замовлення ? ",
+                                     "Підтвердження",
+                                     MessageBoxButton.YesNo,
+                                     MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Orders.Remove(selestedOrder);
+                }
+            }
         }
     }
 }
