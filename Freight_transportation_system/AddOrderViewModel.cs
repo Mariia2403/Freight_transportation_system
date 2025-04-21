@@ -316,9 +316,21 @@ namespace Freight_transportation_system
         public void ValidateUserName()
         {
             if (string.IsNullOrWhiteSpace(UserName))
+            {
                 UserNameError = "Ім’я не може бути порожнім";
+            }
+            else if (UserName.Trim().Contains(" "))
+            {
+                UserNameError = "Ім’я повинно складатися з одного слова";
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(UserName, @"^[А-ЯІЇЄҐа-яіїєґ'-]{2,20}$"))
+            {
+                UserNameError = "Ім’я має містити лише літери українського алфавіту";
+            }
             else
+            {
                 UserNameError = string.Empty;
+            }
 
             OnPropertyChanged(nameof(UserNameError));
         }
@@ -326,9 +338,21 @@ namespace Freight_transportation_system
         public void ValidateLastName()
         {
             if (string.IsNullOrWhiteSpace(LastName))
+            {
                 LastNameError = "Прізвище не може бути порожнім";
+            }
+            else if (LastName.Trim().Contains(" "))
+            {
+                LastNameError = "Прізвище повинно бути одним словом";
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(LastName, @"^[А-ЯІЇЄҐа-яіїєґ'-]{2,30}$"))
+            {
+                LastNameError = "Прізвище має містити лише українські літери";
+            }
             else
+            {
                 LastNameError = string.Empty;
+            }
 
             OnPropertyChanged(nameof(LastNameError));
         }

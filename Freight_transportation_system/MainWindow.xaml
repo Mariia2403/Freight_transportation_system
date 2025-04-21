@@ -15,7 +15,7 @@
     <Border Background="#caf0f8" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" >
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -54,7 +54,7 @@
                         <TextBlock Text="FREIGHT"
                                    Grid.Row="1"
                                    Foreground="#FAFAFF"
-                                   FontSize="30"
+                                   FontSize="25"
                                    FontWeight="SemiBold"
                                    TextAlignment="Center"
                                    FontFamily="Segoe UI"/>
@@ -62,7 +62,7 @@
                         <TextBlock Text="TRANSPORTATION"
                                    Grid.Row="1"
                                    Foreground="#FAFAFF"
-                                   FontSize="30"
+                                   FontSize="25"
                                    FontWeight="SemiBold"
                                    TextAlignment="Center"
                                    FontFamily="Segoe UI"/>
@@ -161,10 +161,12 @@
                           HorizontalGridLinesBrush="#264653"
                           VerticalGridLinesBrush="#264653"
                           ColumnHeaderHeight="40"
-                          RowHeight="35"
+                          RowHeight="50"
                           SelectionMode="Single"
                           IsReadOnly="True"
-                          Background="#93e1d8" SelectionChanged="dataGridView1_SelectionChanged">
+                          Background="#93e1d8"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          SelectionChanged="dataGridView1_SelectionChanged">
 
                     <!--Ось це прив'язка нашої таблиці-->
 
@@ -188,21 +190,45 @@
                             <Style.Triggers>
                                 <Trigger Property="IsSelected" Value="True">
                                     <Setter Property="Background" Value="#FF758F"/>
-                                    <!-- світло-блакитний -->
+
                                     <Setter Property="Foreground" Value="Black"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
+
+                        <SolidColorBrush x:Key="MaterialDesignComboBoxDropdownBackground" Color="#FF4D6D" />
                     </DataGrid.Resources>
 
 
                     <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="✓" Binding="{Binding IsSelected}" Width="Auto"/>
+                        <DataGridTextColumn Header="Дата створення" Binding="{Binding CreatedDateOnly}" Width="Auto"/>
                         <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
-                        <DataGridTextColumn Header="Транспорт" Binding="{Binding Transport}" Width="120"/>
-                        <DataGridTextColumn Header="Відправлення" Binding="{Binding Departure}" Width="150"/>
-                        <DataGridTextColumn Header="Прибуття" Binding="{Binding Arrival}" Width="150"/>
-                        <DataGridTextColumn Header="Сума" Binding="{Binding Sum}" Width="100"/>
+                        <DataGridTextColumn Header="Транспорт" Binding="{Binding Transport}" Width="Auto"/>
+                        <DataGridTextColumn Header="Відправлення" Binding="{Binding Departure}" Width="Auto"/>
+                        <DataGridTextColumn Header="Прибуття" Binding="{Binding Arrival}" Width="Auto"/>
+                        <DataGridTextColumn Header="Сума" Binding="{Binding Sum}" Width="Auto"/>
+                        <DataGridTemplateColumn Header="Статус доставки" Width="150">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding DeliveryStatusList}"
+                                              SelectedItem="{Binding DeliveryStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Width="Auto"
+                                              Background="#FF8FA3"
+                                              Foreground="White"
+                                              FontWeight="Bold"
+                                              Padding="5">
+
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="ComboBoxItem">
+                                                <Setter Property="Background" Value="#c9184a"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
 
 

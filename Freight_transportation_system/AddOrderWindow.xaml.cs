@@ -75,12 +75,7 @@ namespace Freight_transportation_system
             }
 
             string transportType = vm.SelectedTransportOption?.Name;// Присвоює те що обрав користувач 
-
             string cargoType = vm.SelectedCargoType?.CargoType;//Присвоюємо те що обрав користувач 
-
-            double weight = double.Parse(vm.WeightText);
-            double volume = double.Parse(vm.VolumeText);
-
             string conditionType = vm.SelectedConditionType?.ConditionType;
 
 
@@ -93,6 +88,17 @@ namespace Freight_transportation_system
             if (string.IsNullOrWhiteSpace(cargoType))
             {
                 MessageBox.Show("Оберіть тип вантажу!");
+                return;
+            }
+            if (!double.TryParse(vm.WeightText, out double weight) || weight <= 0)
+            {
+                MessageBox.Show("Вкажіть коректну вагу (додатне число)!", "Помилка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!double.TryParse(vm.VolumeText, out double volume) || volume <= 0)
+            {
+                MessageBox.Show("Вкажіть коректний обʼєм (додатне число)!", "Помилка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

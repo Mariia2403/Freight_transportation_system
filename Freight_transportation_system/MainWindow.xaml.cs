@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows;
@@ -77,41 +78,33 @@ namespace Freight_transportation_system
         {
             var orderForm = new AddOrderWindow();
 
-            if (orderForm.ShowDialog() == true) // ShowDialog повертає bool у WPF
+            if (orderForm.ShowDialog() == true)
             {
                 var vm = orderForm.ViewModel;
+                var transport = vm.CreatedTransport;
 
-                Transport transport = vm.CreatedTransport;
-                //Route route = vm.CurrentRoute;
-
-                Orders.Add(new OrderRow
+                var dto = new OrderDTO
                 {
+                    CreatedAt = DateTime.Now,
                     Number = GenerateOrderNumber(),
-
                     Transport = transport.GetTransportType(),
-
                     CargoType = vm.SelectedCargoType?.CargoType,
-                    ConditionType =transport.SpecialCondition,
-
+                    ConditionType = transport.SpecialCondition,
                     Departure = transport.Route.StartingPoint,
                     Arrival = transport.Route.ArrivalPoint,
-
                     Sum = transport.CalculateTransportationCost().ToString("C"),
-
-                    Weight = vm.WeightText.ToString(),
-                    Volume = vm.VolumeText.ToString(),
-
+                    Weight = vm.WeightText,
+                    Volume = vm.VolumeText,
                     RouteObject = transport.Route,
-
                     UserName = vm.UserName,
                     LastName = vm.LastName,
                     PhoneNumber = vm.PhoneNumber,
+                    DeliveryStatus = DeliveryStatus.Очікується
+                };
 
-                }); //Додаємо новий рядок у таблицю на екрані (таблиця автоматично оновиться)
-
-             //   routeHistory.Add(route);//Додаємо інформацію про маршрут (для подальших дій,
-                                        //наприклад перегляду деталей)
-            } 
+                Orders.Add(OrderRow.FromDTO(dto));
+                routeHistory.Add(transport.Route);
+            }
         }
 
         private void Archived_Click_1(object sender, RoutedEventArgs e)
@@ -120,8 +113,16 @@ namespace Freight_transportation_system
         }
         private void SaveOrders()
         {
-            var json = JsonSerializer.Serialize(Orders);
-            File.WriteAllText("orders.json", json);//Клас File живе у просторі імен System.IO
+            var dtos = Orders.Select(o => o.ToDTO()).ToList();
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+            };
+
+            var json = JsonSerializer.Serialize(dtos, options);
+            File.WriteAllText("orders.json", json);
         }
 
         private void LoadOrders()
@@ -129,11 +130,17 @@ namespace Freight_transportation_system
             if (File.Exists("orders.json"))
             {
                 var json = File.ReadAllText("orders.json");
-                var loadedOrders = JsonSerializer.Deserialize<ObservableCollection<OrderRow>>(json);
-                if (loadedOrders != null)
+
+                var options = new JsonSerializerOptions
                 {
-                    Orders = loadedOrders;
-                    DataContext = this; // Оновлюємо прив'язку, якщо Orders перезаписаний
+                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+                };
+
+                var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
+                if (loadedDtos != null)
+                {
+                    Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
+                    DataContext = this;
                 }
             }
         }
