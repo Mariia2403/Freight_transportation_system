@@ -262,7 +262,19 @@
                         IsEnabled="False"
                         Click="DeleteButton_Click"/>
 
-
+                <Button Grid.Row="4"
+                        x:Name="EditButton"
+                        Content ="Редагувати"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Margin="20,40"
+                        Width="150"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Background="#FF8FA3"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        IsEnabled="False"
+                        Click="EditButton_Click"/>    
             </Grid>
         </Grid>
 

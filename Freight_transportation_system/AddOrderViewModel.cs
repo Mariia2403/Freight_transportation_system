@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Freight_transportation_system
 {
@@ -263,6 +264,31 @@ namespace Freight_transportation_system
             };
         }
 
+        public AddOrderViewModel(OrderDTO dto) : this() // ← викликає базовий конструктор, щоб наповнити списки
+        {
+            SelectedTransportOption = TransportTypes.FirstOrDefault(t => t.Name == dto.Transport);
+            SelectedCargoType = CargoType.FirstOrDefault(c => c.CargoType == dto.CargoType);
+            SelectedConditionType = ConditionType.FirstOrDefault(c => c.ConditionType == dto.ConditionType);
+            SelectedDepartureCity = CitiesOfDeparture.FirstOrDefault(c => c.CitiesOfDeparture == dto.Departure);
+            SelectedArrivalCity = CitiesOfArrival.FirstOrDefault(c => c.CitiesOfArrival == dto.Arrival);
+
+            WeightText = dto.Weight;
+            VolumeText = dto.Volume;
+
+            UserName = dto.UserName;
+            LastName = dto.LastName;
+            PhoneNumber = dto.PhoneNumber;
+
+            CurrentRoute = dto.RouteObject;
+
+           
+            if (dto.Transport == "Газель")
+                CreatedTransport = new Gazell(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+            else if (dto.Transport == "Фура")
+                CreatedTransport = new Track(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+            else if (dto.Transport == "Бус")
+                CreatedTransport = new Beads(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;//Це сигналізація для WPF, коли якась властивість змінюється.
 

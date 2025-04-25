@@ -28,7 +28,12 @@ namespace Freight_transportation_system
             //this.DialogResult = true;
             //this.Close();
         }
-
+        public AddOrderWindow(OrderDTO dto)
+        {
+            InitializeComponent();
+            ViewModel = new AddOrderViewModel(dto);
+            DataContext = ViewModel;
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

@@ -153,9 +153,11 @@ namespace Freight_transportation_system
         }
         private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            
             // Активуємо кнопку "Деталі", якщо щось вибрано
             DetailsButton.IsEnabled = dataGridView1.SelectedItem != null;
             DeleteButton.IsEnabled = dataGridView1.SelectedItem != null;
+            EditButton.IsEnabled = dataGridView1.SelectedItem != null;
         }
 
         private void DetailsButton_Click(object sender, RoutedEventArgs e)
@@ -179,6 +181,51 @@ namespace Freight_transportation_system
                 if (result == MessageBoxResult.Yes)
                 {
                     Orders.Remove(selestedOrder);
+                }
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem is OrderRow selectedOrder)
+            {
+                // 1. Створюємо DTO з вибраного елемента
+                var dto = selectedOrder.ToDTO();
+
+                // 2. Відкриваємо вікно AddOrderWindow з даними
+                var editWindow = new AddOrderWindow(dto); // ← Треба створити конструктор в AddOrderWindow який приймає DTO
+
+                // 3. Якщо користувач зберіг зміни
+                if (editWindow.ShowDialog() == true)
+                {
+                    var vm = editWindow.ViewModel;
+
+                    // 4. Створюємо оновлений DTO
+                    OrderDTO updatedDto = new OrderDTO
+                    {
+                        CreatedAt = selectedOrder.CreatedAt, // зберігаємо дату створення
+                        Number = selectedOrder.Number,
+                        Transport = vm.SelectedTransportOption?.Name,
+                        CargoType = vm.SelectedCargoType?.CargoType,
+                        ConditionType = vm.SelectedConditionType?.ConditionType,
+                        Departure = vm.SelectedDepartureCity?.CitiesOfDeparture,
+                        Arrival = vm.SelectedArrivalCity?.CitiesOfArrival,
+                        Weight = vm.WeightText,
+                        Volume = vm.VolumeText,
+                        Sum = vm.CreatedTransport.CalculateTransportationCost().ToString("C"),
+                        UserName = vm.UserName,
+                        LastName = vm.LastName,
+                        PhoneNumber = vm.PhoneNumber,
+                        RouteObject = vm.CreatedTransport.Route,
+                        DeliveryStatus = selectedOrder.DeliveryStatus // не змінюємо вручну тут
+                    };
+
+                    // 5. Оновлюємо у списку Orders
+                    int index = Orders.IndexOf(selectedOrder);
+                    if (index != -1)
+                    {
+                        Orders[index] = OrderRow.FromDTO(updatedDto);
+                    }
                 }
             }
         }
