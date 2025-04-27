@@ -3,16 +3,72 @@
   "WorkspaceRootPath": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\addorderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:addorderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|d:\\visual studio (2)\\2 \u043A\u0443\u0440\u0441\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\freight_transportation_system\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\addorderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:addorderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\routeselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:routeselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\beads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:beads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\gazell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:gazell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\transport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:transport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\transportoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:transportoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\addorderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,62 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\addorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:addorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\transportoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:transportoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\orderdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:orderdetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\routeselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:routeselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:track.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\gazell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:gazell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:cargo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\transport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:transport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\beads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D252378F-E93A-4B82-B56B-9572018F7BB4}|Freight_transportation_system.csproj|solutionrelative:beads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,31 +94,69 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "OrderDetailsWindow.xaml",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderDetailsWindow.xaml",
               "RelativeDocumentMoniker": "OrderDetailsWindow.xaml",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderDetailsWindow.xaml",
               "RelativeToolTip": "OrderDetailsWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-21T12:17:14.482Z",
+              "WhenOpened": "2025-04-26T17:37:58.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "MainViewModel.cs",
+              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainViewModel.cs",
+              "RelativeToolTip": "MainViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T11:08:39.73Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\App.xaml",
-              "RelativeToolTip": "App.xaml",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAswB0AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T13:22:08.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderRow.cs",
+              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderRow.cs",
+              "RelativeDocumentMoniker": "OrderRow.cs",
+              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderRow.cs",
+              "RelativeToolTip": "OrderRow.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAAAJoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T14:07:24.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-21T10:54:09.273Z",
+              "WhenOpened": "2025-03-28T13:22:09.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "DeliveryStatus.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\DeliveryStatus.cs",
               "RelativeDocumentMoniker": "DeliveryStatus.cs",
@@ -131,133 +169,90 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "OrderDTO.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderDTO.cs",
               "RelativeDocumentMoniker": "OrderDTO.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderDTO.cs",
               "RelativeToolTip": "OrderDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAA0wAoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T10:35:08.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T10:35:08.285Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-28T13:22:09.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderRow.cs",
-              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderRow.cs",
-              "RelativeDocumentMoniker": "OrderRow.cs",
-              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\OrderRow.cs",
-              "RelativeToolTip": "OrderRow.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAswMcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T14:07:24.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAswJsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T13:22:08.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AddOrderViewModel.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderViewModel.cs",
               "RelativeDocumentMoniker": "AddOrderViewModel.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderViewModel.cs",
               "RelativeToolTip": "AddOrderViewModel.cs",
-              "ViewState": "AgIAAAwBAAAAAAAAAAD4vxsBAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAiwHIBAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T21:48:30.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T21:48:30.959Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "AddOrderWindow.xaml.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderWindow.xaml.cs",
               "RelativeDocumentMoniker": "AddOrderWindow.xaml.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderWindow.xaml.cs",
               "RelativeToolTip": "AddOrderWindow.xaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAswKQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:12:49.65Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T13:12:49.65Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "AddOrderWindow.xaml",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderWindow.xaml",
               "RelativeDocumentMoniker": "AddOrderWindow.xaml",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\AddOrderWindow.xaml",
               "RelativeToolTip": "AddOrderWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-04T13:06:37.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T13:06:37.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "TransportOption.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\TransportOption.cs",
               "RelativeDocumentMoniker": "TransportOption.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\TransportOption.cs",
               "RelativeToolTip": "TransportOption.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAowBkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T21:27:40.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T21:27:40.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 7,
               "Title": "Graph.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Graph.cs",
               "RelativeDocumentMoniker": "Graph.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Graph.cs",
               "RelativeToolTip": "Graph.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwFcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T13:23:13.948Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 8,
               "Title": "RouteSelector.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\RouteSelector.cs",
               "RelativeDocumentMoniker": "RouteSelector.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\RouteSelector.cs",
               "RelativeToolTip": "RouteSelector.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwCcAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T13:22:21.448Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
               "Title": "Beads.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Beads.cs",
               "RelativeDocumentMoniker": "Beads.cs",
@@ -269,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "Track.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Track.cs",
               "RelativeDocumentMoniker": "Track.cs",
@@ -281,31 +276,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 11,
               "Title": "Gazell.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Gazell.cs",
               "RelativeDocumentMoniker": "Gazell.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Gazell.cs",
               "RelativeToolTip": "Gazell.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvxEAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvxEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T13:19:37.31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 10,
               "Title": "Cargo.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Cargo.cs",
               "RelativeDocumentMoniker": "Cargo.cs",
               "ToolTip": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Cargo.cs",
               "RelativeToolTip": "Cargo.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAArwEkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T13:18:55.417Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Route.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Route.cs",
               "RelativeDocumentMoniker": "Route.cs",
@@ -317,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "Transport.cs",
               "DocumentMoniker": "D:\\Visual Studio (2)\\2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430 \u043D\u0430 wpf\\Freight_transportation_system\\Transport.cs",
               "RelativeDocumentMoniker": "Transport.cs",

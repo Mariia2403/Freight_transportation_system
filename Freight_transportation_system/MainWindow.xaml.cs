@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Collections.ObjectModel;
-using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
-using System.IO;//набір класів для роботи з файлами, потоками і папками.
 
 namespace Freight_transportation_system
 {
@@ -16,19 +13,24 @@ namespace Freight_transportation_system
     {
         //це спеціальний тип списку, який автоматично повідомляє інтерфейс (UI),
         //коли в ньому з'являються нові елементи, видаляються або змінюються.
-        public ObservableCollection<OrderRow> Orders { get; set; } = new ObservableCollection<OrderRow>();
+        public MainViewModel ViewModel { get; set; }
+        private bool _isSavedManually = false;
+        private bool _hasUnsavedChanges = false;
         //Це список усіх замовлень, які відображаються в таблиці DataGrid.
         //Коли додається новий елемент — DataGrid автоматично оновлюється.
 
-        private List<Route> routeHistory = new List<Route>();
-       // Це окремий список, в якому ти зберігаєш внутрішню інформацію про маршрут
-       // (яку не показуєш у таблиці, але вона важлива, наприклад для деталей замовлення).
+
         public MainWindow()
         {
             InitializeComponent();
-            LoadOrders();
-            DataContext = this; // зв'язуємо XAML з цим класом
-                                //Це найважливіший зв'язок! 
+
+           
+            ViewModel = new MainViewModel();
+            DataContext = ViewModel;
+            MainViewModel.NotifyDataChanged = () => _hasUnsavedChanges = true;
+            //LoadOrders();
+            // зв'язуємо XAML з цим класом
+            //Це найважливіший зв'язок! 
 
 
 
@@ -36,8 +38,35 @@ namespace Freight_transportation_system
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            SaveOrders();
-            base.OnClosing(e);
+            if (!_hasUnsavedChanges)
+            {
+               
+                base.OnClosing(e);
+                return;
+            }
+            if (!_isSavedManually) // ❗ Якщо НЕ було збереження вручну
+            {
+                var result = MessageBox.Show(
+                                        "Бажаєте зберегти зміни перед виходом?",
+                                        "Підтвердження збереження",
+                                        MessageBoxButton.YesNoCancel,
+                                        MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    ViewModel.ApplyChanges(); // ❗ Зберігаємо ТА оновлюємо основний список
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    ViewModel.ResetOrders(); // ❗ Повертаємо як було
+                }
+                else if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+
+                base.OnClosing(e);
+            }
         }
 
         //Якщо користувач натискає ліву кнопку миші по Border,
@@ -102,58 +131,66 @@ namespace Freight_transportation_system
                     DeliveryStatus = DeliveryStatus.Очікується
                 };
 
-                Orders.Add(OrderRow.FromDTO(dto));
-                routeHistory.Add(transport.Route);
+                ViewModel.TempOrders.Add(OrderRow.FromDTO(dto));
+               
+                ViewModel.UpdateTotalSum();
+                _hasUnsavedChanges = true;
+                // ViewModel.Orders.Add(OrderRow.FromDTO(dto));
+                //routeHistory.Add(transport.Route);
             }
         }
 
-        private void Archived_Click_1(object sender, RoutedEventArgs e)
-        {
 
-        }
-        private void SaveOrders()
-        {
-            var dtos = Orders.Select(o => o.ToDTO()).ToList();
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////
+        /// </summary>
+        //private void SaveOrders()
+        //{
+        //    var dtos = ViewModel.Orders.Select(o => o.ToDTO()).ToList();
 
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
-            };
+        //    var options = new JsonSerializerOptions
+        //    {
+        //        WriteIndented = true,
+        //        Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+        //    };
 
-            var json = JsonSerializer.Serialize(dtos, options);
-            File.WriteAllText("orders.json", json);
-        }
+        //    var json = JsonSerializer.Serialize(dtos, options);
+        //    File.WriteAllText("orders.json", json);
+        //}
 
-        private void LoadOrders()
-        {
-            if (File.Exists("orders.json"))
-            {
-                var json = File.ReadAllText("orders.json");
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////
+        /// </summary>
+        //private void LoadOrders()
+        //{
+        //    if (File.Exists("orders.json"))
+        //    {
+        //        var json = File.ReadAllText("orders.json");
 
-                var options = new JsonSerializerOptions
-                {
-                    Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
-                };
+        //        var options = new JsonSerializerOptions
+        //        {
+        //            Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+        //        };
 
-                var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
-                if (loadedDtos != null)
-                {
-                    Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
-                    DataContext = this;
-                }
-            }
-        }
+        //        var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
+        //        if (loadedDtos != null)
+        //        {
+        //            Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
+        //            DataContext = this;
+        //        }
+        //    }
+        //}
 
+        /////////////////////////////////////////////////////////////////
         private string GenerateOrderNumber()
         {
             var random = new Random();
-            int number =  random.Next(10000000, 99999999); // 8 цифр
+            int number = random.Next(10000000, 99999999); // 8 цифр
             return number.ToString();
         }
         private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            
+
             // Активуємо кнопку "Деталі", якщо щось вибрано
             DetailsButton.IsEnabled = dataGridView1.SelectedItem != null;
             DeleteButton.IsEnabled = dataGridView1.SelectedItem != null;
@@ -171,17 +208,20 @@ namespace Freight_transportation_system
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridView1.SelectedItem is OrderRow selestedOrder)
-            { 
-            var result = MessageBox.Show("Ви впевнені, що хочете видалити це замовлення ? ",
-                                     "Підтвердження",
-                                     MessageBoxButton.YesNo,
-                                     MessageBoxImage.Warning);
+            if (dataGridView1.SelectedItem is OrderRow selectedOrder)
+            {
+                var result = MessageBox.Show(
+                    "Ви впевнені, що хочете видалити це замовлення?",
+                    "Підтвердження",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    Orders.Remove(selestedOrder);
+                    ViewModel.DeleteOrder(selectedOrder);
                 }
+
+                _hasUnsavedChanges = true;
             }
         }
 
@@ -193,7 +233,7 @@ namespace Freight_transportation_system
                 var dto = selectedOrder.ToDTO();
 
                 // 2. Відкриваємо вікно AddOrderWindow з даними
-                var editWindow = new AddOrderWindow(dto); // ← Треба створити конструктор в AddOrderWindow який приймає DTO
+                var editWindow = new AddOrderWindow(dto);
 
                 // 3. Якщо користувач зберіг зміни
                 if (editWindow.ShowDialog() == true)
@@ -203,7 +243,7 @@ namespace Freight_transportation_system
                     // 4. Створюємо оновлений DTO
                     OrderDTO updatedDto = new OrderDTO
                     {
-                        CreatedAt = selectedOrder.CreatedAt, // зберігаємо дату створення
+                        CreatedAt = selectedOrder.CreatedAt,
                         Number = selectedOrder.Number,
                         Transport = vm.SelectedTransportOption?.Name,
                         CargoType = vm.SelectedCargoType?.CargoType,
@@ -217,17 +257,44 @@ namespace Freight_transportation_system
                         LastName = vm.LastName,
                         PhoneNumber = vm.PhoneNumber,
                         RouteObject = vm.CreatedTransport.Route,
-                        DeliveryStatus = selectedOrder.DeliveryStatus // не змінюємо вручну тут
+                        DeliveryStatus = selectedOrder.DeliveryStatus
                     };
 
-                    // 5. Оновлюємо у списку Orders
-                    int index = Orders.IndexOf(selectedOrder);
-                    if (index != -1)
-                    {
-                        Orders[index] = OrderRow.FromDTO(updatedDto);
-                    }
+                    // 5. Викликаємо метод з ViewModel:
+                    ViewModel.EditOrder(selectedOrder, updatedDto);
+                    _hasUnsavedChanges = true;
                 }
             }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = SearchBox.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                MessageBox.Show("Введіть номер замовлення для пошуку.");
+                return;
+            }
+
+            var found = ViewModel.Orders.FirstOrDefault(order => order.Number == query);
+
+            if (found != null)
+            {
+                dataGridView1.SelectedItem = found;
+                dataGridView1.ScrollIntoView(found);
+            }
+            else
+            {
+                MessageBox.Show($"Замовлення з номером {query} не знайдено.");
+            }
+        }
+
+        private void SaveOrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ApplyChanges();
+            _isSavedManually = true;
+            _hasUnsavedChanges = false;
+            MessageBox.Show("Замовлення успішно збережені!", "Збереження", MessageBoxButton.OK);
         }
     }
 }

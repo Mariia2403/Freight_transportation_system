@@ -148,7 +148,15 @@ namespace Freight_transportation_system
         public DeliveryStatus DeliveryStatus
         {
             get => _deliveryStatus;
-            set { _deliveryStatus = value; OnPropertyChanged(nameof(DeliveryStatus)); }
+            set
+            {
+                if (_deliveryStatus != value)
+                {
+                    _deliveryStatus = value;
+                    OnPropertyChanged(nameof(DeliveryStatus));
+                    MainViewModel.NotifyDataChanged(); // ← оце головне! 🔥
+                }
+            }
         }
 
         // === DTO конвертери ===

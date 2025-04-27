@@ -345,13 +345,14 @@ namespace Freight_transportation_system
             {
                 UserNameError = "Ім’я не може бути порожнім";
             }
+
             else if (UserName.Trim().Contains(" "))
             {
                 UserNameError = "Ім’я повинно складатися з одного слова";
             }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(UserName, @"^[А-ЯІЇЄҐа-яіїєґ'-]{2,20}$"))
             {
-                UserNameError = "Ім’я має містити лише літери українського алфавіту";
+                UserNameError = "Ім’я має містити лише літери українського алфавіту ";
             }
             else
             {

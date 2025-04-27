@@ -103,6 +103,7 @@
     <Compile Include="DeliveryStatus.cs" />
     <Compile Include="Gazell.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="OrderDetailsWindow.xaml.cs">
       <DependentUpon>OrderDetailsWindow.xaml</DependentUpon>
     </Compile>
