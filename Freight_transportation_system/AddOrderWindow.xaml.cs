@@ -10,6 +10,8 @@ namespace Freight_transportation_system
     public partial class AddOrderWindow : Window
     {
         public AddOrderViewModel ViewModel { get; }
+
+        
         //Це публічна властивість ViewModel,
         //яка дозволяє іншим класам (наприклад MainWindow)
         //отримати доступ до даних, які зберігаються у AddOrderViewModel.
@@ -62,6 +64,7 @@ namespace Freight_transportation_system
                 }
             }
         }
+      
 
         private void Save_Click_1(object sender, RoutedEventArgs e)
         {
@@ -155,7 +158,10 @@ namespace Freight_transportation_system
                 }
 
                 vm.CreatedTransport = createdTransport; // ← створений об'єкт зберігається у ViewModel
+
                 this.DialogResult = true;
+                MessageBox.Show("Замовлення збережено");
+
                 this.Close();
             }
             catch (ArgumentException ex)

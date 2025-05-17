@@ -387,11 +387,19 @@ namespace Freight_transportation_system
         public void ValidatePhoneNumber()
         {
             if (string.IsNullOrWhiteSpace(PhoneNumber))
+            {
                 PhoneNumberError = "Номер телефону обов’язковий";
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(PhoneNumber, @"^\+?\d{9,15}$"))
-                PhoneNumberError = "Некоректний формат телефону";
+            }
             else
-                PhoneNumberError = string.Empty;
+            {
+                var cleanedNumber = PhoneNumber.Replace(" ", ""); // видаляємо пробіли
+                var pattern = @"^(?:\+38)?0\d{9}$"; // допускає +380XXXXXXXXX або 0XXXXXXXXX
+
+                if (!System.Text.RegularExpressions.Regex.IsMatch(cleanedNumber, pattern))
+                    PhoneNumberError = "Некоректний формат телефону. Приклад: +380961234567 або 096 1234567";
+                else
+                    PhoneNumberError = string.Empty;
+            }
 
             OnPropertyChanged(nameof(PhoneNumberError));
         }

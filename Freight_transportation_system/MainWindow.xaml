@@ -206,7 +206,7 @@
                         <SolidColorBrush x:Key="MaterialDesignComboBoxDropdownBackground" Color="#FF4D6D" />
                     </DataGrid.Resources>
 
-
+ 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Дата створення" Binding="{Binding CreatedDateOnly}" Width="Auto"/>
                         <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
@@ -236,6 +236,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+                    
+                    
                     </DataGrid.Columns>
 
 

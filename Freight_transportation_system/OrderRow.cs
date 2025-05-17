@@ -154,7 +154,7 @@ namespace Freight_transportation_system
                 {
                     _deliveryStatus = value;
                     OnPropertyChanged(nameof(DeliveryStatus));
-                    MainViewModel.NotifyDataChanged(); // ← оце головне! 🔥
+                    MainViewModel.NotifyDataChanged(); 
                 }
             }
         }

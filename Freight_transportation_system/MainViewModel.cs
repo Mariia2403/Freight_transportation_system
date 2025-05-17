@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 
 namespace Freight_transportation_system
@@ -19,6 +17,8 @@ namespace Freight_transportation_system
         public ObservableCollection<OrderRow> TempOrders { get; set; } = new ObservableCollection<OrderRow>();
 
         public static Action NotifyDataChanged = () => { };
+        public Dictionary<string, OrderRow> OrdersByNumber { get; set; } = new Dictionary<string, OrderRow>();
+
         private string _totalSumText;
         public string TotalSumText
         {
@@ -38,7 +38,9 @@ namespace Freight_transportation_system
 
         public void AddOrder(OrderDTO dto)
         {
-            TempOrders.Add(OrderRow.FromDTO(dto));
+            var orderRow = OrderRow.FromDTO(dto);
+            TempOrders.Add(orderRow);
+            OrdersByNumber[orderRow.Number] = orderRow;
             UpdateTotalSum();
         }
 
@@ -47,13 +49,20 @@ namespace Freight_transportation_system
             int index = TempOrders.IndexOf(original);
             if (index >= 0)
             {
-                TempOrders[index] = OrderRow.FromDTO(updatedDto);
+                OrdersByNumber.Remove(original.Number);  // Видалити стару версію із словника
+
+                var updatedRow = OrderRow.FromDTO(updatedDto);
+                TempOrders[index] = updatedRow;           //  Оновити список
+
+                OrdersByNumber[updatedRow.Number] = updatedRow; //  Додати нову версію у словник
+
                 UpdateTotalSum();
             }
         }
 
         public void DeleteOrder(OrderRow selected)
         {
+            OrdersByNumber.Remove(selected.Number);
             TempOrders.Remove(selected);
             UpdateTotalSum();
         }
@@ -75,7 +84,11 @@ namespace Freight_transportation_system
 
         public void SaveOrders()
         {
-            var dtos = TempOrders.Select(o => o.ToDTO()).ToList();
+            //Якщо користувач позначив замовлення як "Скасовано", воно залишиться у таблиці до закриття.
+            var dtos = TempOrders
+                .Where(o => o.DeliveryStatus != DeliveryStatus.Скасовано)
+                .Select(o => o.ToDTO())
+                .ToList();
 
             var options = new JsonSerializerOptions
             {
@@ -105,12 +118,25 @@ namespace Freight_transportation_system
                 var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
                 if (loadedDtos != null)
                 {
+                    //Відфільтрувати при завантаженні
+                    var filteredDtos = loadedDtos
+                                       .Where(dto => dto.DeliveryStatus != DeliveryStatus.Скасовано)
+                                       .ToList();
+
                     _originalOrders = loadedDtos;
                     Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
                     TempOrders = new ObservableCollection<OrderRow>(Orders.Select(o => o)); // ❗ Копія для роботи
                     UpdateTotalSum();
                 }
+
+                OrdersByNumber = new Dictionary<string, OrderRow>();
+                foreach (var order in TempOrders)
+                {
+                    if (!OrdersByNumber.ContainsKey(order.Number))
+                        OrdersByNumber[order.Number] = order;
+                }
             }
+
         }
         public void ResetOrders()
         {

@@ -44,7 +44,7 @@ namespace Freight_transportation_system
                 base.OnClosing(e);
                 return;
             }
-            if (!_isSavedManually) // ❗ Якщо НЕ було збереження вручну
+            if (!_isSavedManually) // Якщо НЕ було збереження вручну
             {
                 var result = MessageBox.Show(
                                         "Бажаєте зберегти зміни перед виходом?",
@@ -54,11 +54,11 @@ namespace Freight_transportation_system
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    ViewModel.ApplyChanges(); // ❗ Зберігаємо ТА оновлюємо основний список
+                    ViewModel.ApplyChanges(); // Зберігаємо ТА оновлюємо основний список
                 }
                 else if (result == MessageBoxResult.No)
                 {
-                    ViewModel.ResetOrders(); // ❗ Повертаємо як було
+                    ViewModel.ResetOrders(); // Повертаємо як було
                 }
                 else if (result == MessageBoxResult.Cancel)
                 {
@@ -131,8 +131,9 @@ namespace Freight_transportation_system
                     DeliveryStatus = DeliveryStatus.Очікується
                 };
 
-                ViewModel.TempOrders.Add(OrderRow.FromDTO(dto));
-               
+                var orderRow = OrderRow.FromDTO(dto);
+                ViewModel.TempOrders.Add(orderRow);
+                ViewModel.OrdersByNumber[orderRow.Number] = orderRow;
                 ViewModel.UpdateTotalSum();
                 _hasUnsavedChanges = true;
                 // ViewModel.Orders.Add(OrderRow.FromDTO(dto));
@@ -141,52 +142,18 @@ namespace Freight_transportation_system
         }
 
 
-        /// <summary>
-        /// ///////////////////////////////////////////////////////////
-        /// </summary>
-        //private void SaveOrders()
-        //{
-        //    var dtos = ViewModel.Orders.Select(o => o.ToDTO()).ToList();
-
-        //    var options = new JsonSerializerOptions
-        //    {
-        //        WriteIndented = true,
-        //        Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
-        //    };
-
-        //    var json = JsonSerializer.Serialize(dtos, options);
-        //    File.WriteAllText("orders.json", json);
-        //}
-
-        /// <summary>
-        /// /////////////////////////////////////////////////////////////////
-        /// </summary>
-        //private void LoadOrders()
-        //{
-        //    if (File.Exists("orders.json"))
-        //    {
-        //        var json = File.ReadAllText("orders.json");
-
-        //        var options = new JsonSerializerOptions
-        //        {
-        //            Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
-        //        };
-
-        //        var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
-        //        if (loadedDtos != null)
-        //        {
-        //            Orders = new ObservableCollection<OrderRow>(loadedDtos.Select(OrderRow.FromDTO));
-        //            DataContext = this;
-        //        }
-        //    }
-        //}
-
-        /////////////////////////////////////////////////////////////////
         private string GenerateOrderNumber()
         {
             var random = new Random();
-            int number = random.Next(10000000, 99999999); // 8 цифр
-            return number.ToString();
+            string number;
+
+            do
+            {
+                number = random.Next(10000000, 99999999).ToString(); // Генеруємо 8 цифр
+            }
+            while (ViewModel.OrdersByNumber.ContainsKey(number)); // Перевіряємо на існування
+
+            return number;
         }
         private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -276,9 +243,7 @@ namespace Freight_transportation_system
                 return;
             }
 
-            var found = ViewModel.Orders.FirstOrDefault(order => order.Number == query);
-
-            if (found != null)
+            if (ViewModel.OrdersByNumber.TryGetValue(query, out var found))
             {
                 dataGridView1.SelectedItem = found;
                 dataGridView1.ScrollIntoView(found);
