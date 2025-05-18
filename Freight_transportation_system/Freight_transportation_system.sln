@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freight_transportation_system", "Freight_transportation_system.csproj", "{D252378F-E93A-4B82-B56B-9572018F7BB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "..\UnitTestProject1\UnitTestProject1.csproj", "{A2733BE1-1620-4341-A4AE-4E79128BDECC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D252378F-E93A-4B82-B56B-9572018F7BB4} = {D252378F-E93A-4B82-B56B-9572018F7BB4}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{D252378F-E93A-4B82-B56B-9572018F7BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D252378F-E93A-4B82-B56B-9572018F7BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D252378F-E93A-4B82-B56B-9572018F7BB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2733BE1-1620-4341-A4AE-4E79128BDECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2733BE1-1620-4341-A4AE-4E79128BDECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2733BE1-1620-4341-A4AE-4E79128BDECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2733BE1-1620-4341-A4AE-4E79128BDECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

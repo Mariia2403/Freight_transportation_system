@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Freight_transportation_system
 {
-    internal class Track : Transport
+    public class Track : Transport
     {
         public override double MaxWeight => 5000;
 
@@ -16,6 +16,9 @@ namespace Freight_transportation_system
         {
 
         }
+
+       
+
         public override double CalculateTransportationCost()
         {
             //Дорога в обслуговуванні, але ефективна на далекі відстані !!!!!!!!!!!!!! змінити рядки
