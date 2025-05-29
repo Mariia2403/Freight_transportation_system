@@ -11,46 +11,156 @@ namespace Freight_transportation_system
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-        public DateTime CreatedAt { get; set; }
-        public string Number { get; set; }
-        public string Transport { get; set; }
-        public string CargoType { get; set; }
-        public string ConditionType { get; set; }
-        public string Departure { get; set; }
-        public string Arrival { get; set; }
-        public string Sum { get; set; }
-        public string Weight { get; set; }
-        public string Volume { get; set; }
-        public Route RouteObject { get; set; }
-        public string UserName { get; set; }
-        public string LastName { get; set; }
-        public string FullName => $"{UserName} {LastName}";
-        public string PhoneNumber { get; set; }
-        public bool IsSelected { get; set; }
-
-
-        public string CreatedDateOnly => CreatedAt.ToString("dd.MM.yyyy");
-        public string CreatedDateTime => CreatedAt.ToString("dd.MM.yyyy HH:mm");
-
         protected void OnPropertyChanged(string name) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-      //П?
-        public List<DeliveryStatus> DeliveryStatusList { get; set; } =
-     Enum.GetValues(typeof(DeliveryStatus)).Cast<DeliveryStatus>().ToList();
 
-        private DeliveryStatus deliveryStatus;
+        public static readonly List<DeliveryStatus> AllStatuses =
+            Enum.GetValues(typeof(DeliveryStatus)).Cast<DeliveryStatus>().ToList();
+
+        public List<DeliveryStatus> DeliveryStatusList => AllStatuses;
+
+        // === Приватні поля ===
+        private DateTime _createdAt;
+        private string _number;
+        private string _transport;
+        private string _cargoType;
+        private string _conditionType;
+        private string _departure;
+        private string _arrival;
+        private string _sum;
+        private string _weight;
+        private string _volume;
+        private Route _routeObject;
+        private string _userName;
+        private string _lastName;
+        private string _phoneNumber;
+        private bool _isSelected;
+        private DeliveryStatus _deliveryStatus;
+
+        // === Властивості ===
+
+        public DateTime CreatedAt
+        {
+            get => _createdAt;
+            set { _createdAt = value; OnPropertyChanged(nameof(CreatedAt)); OnPropertyChanged(nameof(CreatedDateOnly)); OnPropertyChanged(nameof(CreatedDateTime)); }
+        }
+
+        public string CreatedDateOnly => CreatedAt.ToString("dd.MM.yyyy");
+
+        public string CreatedDateTime => CreatedAt.ToString("dd.MM.yyyy HH:mm");
+
+        public string Number
+        {
+            get => _number;
+            set { _number = value; OnPropertyChanged(nameof(Number)); }
+        }
+
+        public string Transport
+        {
+            get => _transport;
+            set { _transport = value; OnPropertyChanged(nameof(Transport)); }
+        }
+
+        public string CargoType
+        {
+            get => _cargoType;
+            set { _cargoType = value; OnPropertyChanged(nameof(CargoType)); }
+        }
+
+        public string ConditionType
+        {
+            get => _conditionType;
+            set { _conditionType = value; OnPropertyChanged(nameof(ConditionType)); }
+        }
+
+        public string Departure
+        {
+            get => _departure;
+            set { _departure = value; OnPropertyChanged(nameof(Departure)); }
+        }
+
+        public string Arrival
+        {
+            get => _arrival;
+            set { _arrival = value; OnPropertyChanged(nameof(Arrival)); }
+        }
+
+        public string Sum
+        {
+            get => _sum;
+            set { _sum = value; OnPropertyChanged(nameof(Sum)); }
+        }
+
+        public string Weight
+        {
+            get => _weight;
+            set { _weight = value; OnPropertyChanged(nameof(Weight)); }
+        }
+
+        public string Volume
+        {
+            get => _volume;
+            set { _volume = value; OnPropertyChanged(nameof(Volume)); }
+        }
+
+        public Route RouteObject
+        {
+            get => _routeObject;
+            set { _routeObject = value; OnPropertyChanged(nameof(RouteObject)); }
+        }
+
+        public string UserName
+        {
+            get => _userName;
+            set
+            {
+                _userName = value;
+                OnPropertyChanged(nameof(UserName));
+                OnPropertyChanged(nameof(FullName));
+            }
+        }
+
+        public string LastName
+        {
+            get => _lastName;
+            set
+            {
+                _lastName = value;
+                OnPropertyChanged(nameof(LastName));
+                OnPropertyChanged(nameof(FullName));
+            }
+        }
+
+        public string FullName => $"{UserName} {LastName}";
+
+        public string PhoneNumber
+        {
+            get => _phoneNumber;
+            set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); }
+        }
+
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set { _isSelected = value; OnPropertyChanged(nameof(IsSelected)); }
+        }
 
         public DeliveryStatus DeliveryStatus
         {
-            get => deliveryStatus;
+            get => _deliveryStatus;
             set
             {
-                deliveryStatus = value;
-                OnPropertyChanged(nameof(DeliveryStatus));
+                if (_deliveryStatus != value)
+                {
+                    _deliveryStatus = value;
+                    OnPropertyChanged(nameof(DeliveryStatus));
+                    MainViewModel.NotifyDataChanged(); 
+                }
             }
         }
-        // Метод для створення з DTO
+
+        // === DTO конвертери ===
+
         public static OrderRow FromDTO(OrderDTO dto)
         {
             if (dto == null) return null;
@@ -74,7 +184,6 @@ namespace Freight_transportation_system
             };
         }
 
-        // Метод для конвертації назад у DTO
         public OrderDTO ToDTO()
         {
             return new OrderDTO

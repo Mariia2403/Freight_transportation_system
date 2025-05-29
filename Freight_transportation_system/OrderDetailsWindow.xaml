@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Деталі замовлення" Height="800" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Деталі замовлення" Height="850" Width="700" WindowStartupLocation="CenterScreen">
 
     <Grid Background="#caf0f8" >
 
@@ -234,7 +234,7 @@
             </Border>
 
             <StackPanel Grid.Row="3">
-                <Border Height="Auto" Background="#590D22" CornerRadius="10,10,10,10" VerticalAlignment="Center" Margin="200 10">
+                <Border Height="Auto"  Background="#590D22" CornerRadius="10,10,10,10" VerticalAlignment="Center" Margin="200 10">
 
                     <Grid>
                         <Grid.ColumnDefinitions>

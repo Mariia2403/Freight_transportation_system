@@ -10,6 +10,8 @@ namespace Freight_transportation_system
     public partial class AddOrderWindow : Window
     {
         public AddOrderViewModel ViewModel { get; }
+
+        
         //Це публічна властивість ViewModel,
         //яка дозволяє іншим класам (наприклад MainWindow)
         //отримати доступ до даних, які зберігаються у AddOrderViewModel.
@@ -28,7 +30,12 @@ namespace Freight_transportation_system
             //this.DialogResult = true;
             //this.Close();
         }
-
+        public AddOrderWindow(OrderDTO dto)
+        {
+            InitializeComponent();
+            ViewModel = new AddOrderViewModel(dto);
+            DataContext = ViewModel;
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -57,6 +64,7 @@ namespace Freight_transportation_system
                 }
             }
         }
+      
 
         private void Save_Click_1(object sender, RoutedEventArgs e)
         {
@@ -138,8 +146,8 @@ namespace Freight_transportation_system
                     case "Газель":
                         createdTransport = new Gazell(transportType, weight, volume, conditionType, rout);
                         break;
-                    case "Фура":
-                        createdTransport = new Track(transportType, weight, volume, conditionType, rout);
+                    case "Вантажівка":
+                        createdTransport = new Truck(transportType, weight, volume, conditionType, rout);
                         break;
                     case "Бус":
                         createdTransport = new Beads(transportType, weight, volume, conditionType, rout);
@@ -150,7 +158,10 @@ namespace Freight_transportation_system
                 }
 
                 vm.CreatedTransport = createdTransport; // ← створений об'єкт зберігається у ViewModel
+
                 this.DialogResult = true;
+                MessageBox.Show("Замовлення збережено");
+
                 this.Close();
             }
             catch (ArgumentException ex)

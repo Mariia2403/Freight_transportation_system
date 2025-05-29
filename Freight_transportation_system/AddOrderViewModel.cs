@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Freight_transportation_system
 {
@@ -20,7 +21,7 @@ namespace Freight_transportation_system
         /////////////////////////////////////////////
         
         public Transport CreatedTransport { get; set; } // ← буде збережено після Save
-        public Cargo Cargo { get; private set; }
+     //   public Cargo Cargo { get; private set; }
         private string weightText; // Змінна для зберігання введеної ваги (в текстовому вигляді, бо юзер вводить рядок)
         private string volumeText;// Аналогічно для об'єму
         public Route CurrentRoute { get; set; } // маєш його створювати перед цим
@@ -210,7 +211,7 @@ namespace Freight_transportation_system
             TransportTypes = new ObservableCollection<TransportOption>
             {
             new TransportOption { Name = "Бус" },
-            new TransportOption { Name = "Фура" },
+            new TransportOption { Name = "Вантажівка" },
             new TransportOption { Name = "Газель" }
             };
             CargoType = new ObservableCollection<TransportOption>
@@ -263,6 +264,31 @@ namespace Freight_transportation_system
             };
         }
 
+        public AddOrderViewModel(OrderDTO dto) : this() // ← викликає базовий конструктор, щоб наповнити списки
+        {
+            SelectedTransportOption = TransportTypes.FirstOrDefault(t => t.Name == dto.Transport);
+            SelectedCargoType = CargoType.FirstOrDefault(c => c.CargoType == dto.CargoType);
+            SelectedConditionType = ConditionType.FirstOrDefault(c => c.ConditionType == dto.ConditionType);
+            SelectedDepartureCity = CitiesOfDeparture.FirstOrDefault(c => c.CitiesOfDeparture == dto.Departure);
+            SelectedArrivalCity = CitiesOfArrival.FirstOrDefault(c => c.CitiesOfArrival == dto.Arrival);
+
+            WeightText = dto.Weight;
+            VolumeText = dto.Volume;
+
+            UserName = dto.UserName;
+            LastName = dto.LastName;
+            PhoneNumber = dto.PhoneNumber;
+
+            CurrentRoute = dto.RouteObject;
+
+           
+            if (dto.Transport == "Газель")
+                CreatedTransport = new Gazell(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+            else if (dto.Transport == "Вантажівка")
+                CreatedTransport = new Truck(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+            else if (dto.Transport == "Бус")
+                CreatedTransport = new Beads(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;//Це сигналізація для WPF, коли якась властивість змінюється.
 
@@ -319,13 +345,14 @@ namespace Freight_transportation_system
             {
                 UserNameError = "Ім’я не може бути порожнім";
             }
+
             else if (UserName.Trim().Contains(" "))
             {
                 UserNameError = "Ім’я повинно складатися з одного слова";
             }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(UserName, @"^[А-ЯІЇЄҐа-яіїєґ'-]{2,20}$"))
             {
-                UserNameError = "Ім’я має містити лише літери українського алфавіту";
+                UserNameError = "Ім’я має містити лише літери українського алфавіту ";
             }
             else
             {
@@ -360,13 +387,23 @@ namespace Freight_transportation_system
         public void ValidatePhoneNumber()
         {
             if (string.IsNullOrWhiteSpace(PhoneNumber))
+            {
                 PhoneNumberError = "Номер телефону обов’язковий";
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(PhoneNumber, @"^\+?\d{9,15}$"))
-                PhoneNumberError = "Некоректний формат телефону";
+            }
             else
-                PhoneNumberError = string.Empty;
+            {
+                var cleanedNumber = PhoneNumber.Replace(" ", ""); // видаляємо пробіли
+                var pattern = @"^(?:\+38)?0\d{9}$"; // допускає +380XXXXXXXXX або 0XXXXXXXXX
+
+                if (!System.Text.RegularExpressions.Regex.IsMatch(cleanedNumber, pattern))
+                    PhoneNumberError = "Некоректний формат телефону. Приклад: +380961234567 або 096 1234567";
+                else
+                    PhoneNumberError = string.Empty;
+            }
 
             OnPropertyChanged(nameof(PhoneNumberError));
         }
+
+
     }
 }

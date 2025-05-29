@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Freight_transportation_system
 {
-    internal class RouteSelector
+    public class RouteSelector
     {
         //RouteSelector — повертає об'єкт Route.
         private Graph graph;

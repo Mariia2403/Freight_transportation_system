@@ -9,14 +9,13 @@ namespace Freight_transportation_system
     public class Route
     {
 
-        //Route — зберігає етапи маршруту в Waypoints.
-        // 🔒 Приватні змінні
+       
         private string _startingPoint;
         private string _arrivalPoint;
         private List<string> _waypoints;
         private double _distance;
 
-        // 🔓 Публічні властивості з get/set
+        
         public string StartingPoint
         {
             get => _startingPoint;
@@ -44,7 +43,7 @@ namespace Freight_transportation_system
         public Route()
         {
         }
-        // 🔧 Конструктор (не обов’язково, але корисно мати)
+
         public Route(string start, string end, List<string> waypoints, double distance)
         {
             StartingPoint = start;

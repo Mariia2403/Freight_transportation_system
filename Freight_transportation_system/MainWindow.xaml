@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Freight_transportation_system"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="800" Width="1080" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <SolidColorBrush x:Key="MyDividerBrush" Color="#273469"/>
@@ -97,6 +97,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <!-- Заголовок -->
@@ -127,20 +129,26 @@
                    Margin="0 10" />
 
                 <!-- Кнопка "Archived" -->
-                <StackPanel Grid.Row="2"
-                            Background="#FF8FA3"
-                            HorizontalAlignment="Left"
+                <StackPanel Grid.Row="2"   
                             Orientation="Horizontal"
                             Margin="0,10,0,0">
 
-                    <Button x:Name="Archived" Content="Заархівовано"
-                            Style="{StaticResource MaterialDesignOutlinedButton}"
-                            Padding="20,5"
-                            FontSize="15"
-                            FontWeight="Bold"
-                            Click="Archived_Click_1" />
 
+                    <Border Margin="60 0"
+                            Width="400"
+                            Height="40"
+                            Background="#5ec9c0"
+                            CornerRadius="20">
 
+                        <TextBox x:Name="SearchBox"
+                             Width="350"  />
+
+                    </Border>
+                    <Button Content="Пошук"
+                            Width="100"
+                            Click="SearchButton_Click"
+                            Background="#FF758F"
+                            FontWeight="Bold"/>
 
                 </StackPanel>
 
@@ -148,13 +156,12 @@
                 <DataGrid x:Name="dataGridView1"
                           Grid.Row="3"
                           AutoGenerateColumns="False"
-                         
-                          Margin="0,10,0,90"
+                          Margin="0, 10,0,0"
                           Style="{StaticResource MaterialDesignDataGrid}"
                           RowHeaderWidth="0"
                           SelectionUnit="FullRow"
                           CanUserAddRows="False"
-                          ItemsSource="{Binding Orders}"
+                          ItemsSource="{Binding TempOrders}"
                           FontSize="14"
                           FontFamily="Segoe UI"
                           GridLinesVisibility="All"
@@ -199,7 +206,7 @@
                         <SolidColorBrush x:Key="MaterialDesignComboBoxDropdownBackground" Color="#FF4D6D" />
                     </DataGrid.Resources>
 
-
+ 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Дата створення" Binding="{Binding CreatedDateOnly}" Width="Auto"/>
                         <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
@@ -229,39 +236,85 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+                    
+                    
                     </DataGrid.Columns>
 
 
                 </DataGrid>
 
-                <Button  Grid.Row="4"
-                         x:Name="DetailsButton"
-                         Content="Деталі"
-                         Margin="0,0,20,40"
-                         Width="150"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Bottom" 
-                         Style="{StaticResource MaterialDesignOutlinedButton}"
-                         Background="#FF8FA3"
-                         FontSize="15"
-                         FontWeight="Bold"
-                        Click="DetailsButton_Click"
-                         IsEnabled="False"
-                         />
-                <Button Grid.Row="4"
-                        x:Name="DeleteButton"
-                        Content ="Видалити"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Left"
-                        Margin="180,0,20,40"
-                        Width="150"
-                        Style="{StaticResource MaterialDesignOutlinedButton}"
-                        Background="#FF8FA3"
-                        FontSize="15"
-                        FontWeight="Bold"
-                        IsEnabled="False"
-                        Click="DeleteButton_Click"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="0" Background="#264653" >
+                    <TextBlock Text="{Binding TotalSumText}" 
+                               FontSize="16" 
+                               FontWeight="Bold"
+                               Margin="10"
+                               Foreground="White"
+                               />    
+                </StackPanel>
 
+                <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="0,50,0,10">
+
+                    <Button 
+                x:Name="SaveOrdersButton"
+                Content="Зберегти"
+                Margin="0,0,20,60"
+                Width="150"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" 
+                
+                Background="#800F2F"
+                Foreground="White"
+                FontSize="15"
+                FontWeight="Bold"
+                Click="SaveOrdersButton_Click"
+               
+/>
+
+                    <Button
+           x:Name="DeleteButton"
+           Content ="Видалити"
+           VerticalAlignment="Bottom"
+           HorizontalAlignment="Left"
+           Margin="5,0,100,60"
+           Width="150"
+           
+           Background="#C9184A"
+           Foreground="White"
+           FontSize="15"
+           FontWeight="Bold"
+           IsEnabled="False"
+           Click="DeleteButton_Click"/>
+
+                    <Button 
+                           x:Name="DetailsButton"
+                           Content="Деталі"
+                           Margin="0,0,20,60"
+                           Width="150"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom" 
+                           Style="{StaticResource MaterialDesignOutlinedButton}"
+                           Background="#FF8FA3"
+                           FontSize="15"
+                           FontWeight="Bold"
+                          Click="DetailsButton_Click"
+                           IsEnabled="False"
+           />
+                   
+
+                    <Button 
+                              x:Name="EditButton"
+                              Content ="Редагувати"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,20,60"
+                              Width="150"
+                              Style="{StaticResource MaterialDesignOutlinedButton}"
+                              Background="#FF8FA3"
+                              FontSize="15"
+                              FontWeight="Bold"
+                              IsEnabled="False"
+                              Click="EditButton_Click"/>
+                </StackPanel>
 
             </Grid>
         </Grid>
