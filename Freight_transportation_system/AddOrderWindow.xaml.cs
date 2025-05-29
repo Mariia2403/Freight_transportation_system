@@ -146,8 +146,8 @@ namespace Freight_transportation_system
                     case "Газель":
                         createdTransport = new Gazell(transportType, weight, volume, conditionType, rout);
                         break;
-                    case "Фура":
-                        createdTransport = new Track(transportType, weight, volume, conditionType, rout);
+                    case "Вантажівка":
+                        createdTransport = new Truck(transportType, weight, volume, conditionType, rout);
                         break;
                     case "Бус":
                         createdTransport = new Beads(transportType, weight, volume, conditionType, rout);

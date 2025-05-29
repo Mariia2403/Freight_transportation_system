@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Freight_transportation_system
 {
-    public class Track : Transport
+    public class Truck : Transport
     {
         public override double MaxWeight => 5000;
 
         public override double MaxVolume => 40;
 
-        public Track(string cargoType, double weight, double volume, string condition, Route route) : base(cargoType, weight, volume, condition, route)
+        public Truck(string cargoType, double weight, double volume, string condition, Route route) : base(cargoType, weight, volume, condition, route)
         {
 
         }
@@ -29,7 +29,7 @@ namespace Freight_transportation_system
 
         public override string GetTransportType()
         {
-            return "Фура";
+            return "Вантажівка";
         }
     }
 }

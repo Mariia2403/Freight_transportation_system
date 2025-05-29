@@ -96,30 +96,6 @@
     }
   },
   {
-    "CreatedAt": "2025-05-10T16:11:32.1093514+03:00",
-    "Number": "24103130",
-    "Transport": "\u0424\u0443\u0440\u0430",
-    "CargoType": "\u041F\u0440\u043E\u0434\u0443\u043A\u0442\u0438 \u0445\u0430\u0440\u0447\u0443\u0432\u0430\u043D\u043D\u044F",
-    "ConditionType": "\u0410\u043C\u043E\u0440\u0442\u0438\u0437\u0430\u0446\u0456\u044F",
-    "Departure": "\u0416\u0438\u0442\u043E\u043C\u0438\u0440",
-    "Arrival": "\u0427\u0435\u0440\u043A\u0430\u0441\u0438",
-    "Sum": "1\u00A0069,20 \u20B4",
-    "Weight": "30",
-    "Volume": "4",
-    "UserName": "\u041A\u0430\u0442\u0435\u0440\u0438\u043D\u0430",
-    "LastName": "\u0413\u043D\u0430\u0442\u0435\u043D\u043A\u043E",
-    "PhoneNumber": "0671234567",
-    "DeliveryStatus": "\u041E\u0447\u0456\u043A\u0443\u0454\u0442\u044C\u0441\u044F",
-    "RouteObject": {
-      "StartingPoint": "\u0416\u0438\u0442\u043E\u043C\u0438\u0440",
-      "ArrivalPoint": "\u0427\u0435\u0440\u043A\u0430\u0441\u0438",
-      "Waypoints": [
-        "\u041A\u0438\u0457\u0432"
-      ],
-      "Distance": 330
-    }
-  },
-  {
     "CreatedAt": "2025-05-12T10:49:27.3429135+03:00",
     "Number": "73795199",
     "Transport": "\u0411\u0443\u0441",
@@ -141,6 +117,56 @@
         "\u041F\u043E\u043B\u0442\u0430\u0432\u0430"
       ],
       "Distance": 480
+    }
+  },
+  {
+    "CreatedAt": "2025-05-22T15:41:22.0915065+03:00",
+    "Number": "13432020",
+    "Transport": "\u0424\u0443\u0440\u0430",
+    "CargoType": "\u041C\u0435\u0431\u043B\u0456",
+    "ConditionType": "\u041E\u0445\u043E\u043B\u043E\u0434\u0436\u0435\u043D\u043D\u044F",
+    "Departure": "\u041E\u0434\u0435\u0441\u0430",
+    "Arrival": "\u0425\u0430\u0440\u043A\u0456\u0432",
+    "Sum": "345,60 \u20B4",
+    "Weight": "4",
+    "Volume": "8",
+    "UserName": "\u0406\u0430\u0440\u043F\u0430\u0440",
+    "LastName": "\u0412\u0430\u0432\u0430\u043F",
+    "PhoneNumber": "0997764567",
+    "DeliveryStatus": "\u041E\u0447\u0456\u043A\u0443\u0454\u0442\u044C\u0441\u044F",
+    "RouteObject": {
+      "StartingPoint": "\u041E\u0434\u0435\u0441\u0430",
+      "ArrivalPoint": "\u0425\u0430\u0440\u043A\u0456\u0432",
+      "Waypoints": [
+        "\u041C\u0438\u043A\u043E\u043B\u0430\u0457\u0432",
+        "\u0414\u043D\u0456\u043F\u0440\u043E"
+      ],
+      "Distance": 640
+    }
+  },
+  {
+    "CreatedAt": "2025-05-22T16:04:23.5230143+03:00",
+    "Number": "72720194",
+    "Transport": "\u0411\u0443\u0441",
+    "CargoType": "\u041F\u043E\u0431\u0443\u0442\u043E\u0432\u0430 \u0442\u0435\u0445\u043D\u0456\u043A\u0430",
+    "ConditionType": "\u0410\u043C\u043E\u0440\u0442\u0438\u0437\u0430\u0446\u0456\u044F",
+    "Departure": "\u0416\u0438\u0442\u043E\u043C\u0438\u0440",
+    "Arrival": "\u0425\u0430\u0440\u043A\u0456\u0432",
+    "Sum": "1\u00A0201,35 \u20B4",
+    "Weight": "23,445545",
+    "Volume": "2,34445",
+    "UserName": "\u0410\u0432\u043F\u043F",
+    "LastName": "\u0432\u043F\u0432\u043F\u0432\u043A\u043F",
+    "PhoneNumber": "0234564432",
+    "DeliveryStatus": "\u041E\u0447\u0456\u043A\u0443\u0454\u0442\u044C\u0441\u044F",
+    "RouteObject": {
+      "StartingPoint": "\u0416\u0438\u0442\u043E\u043C\u0438\u0440",
+      "ArrivalPoint": "\u0425\u0430\u0440\u043A\u0456\u0432",
+      "Waypoints": [
+        "\u041A\u0438\u0457\u0432",
+        "\u041F\u043E\u043B\u0442\u0430\u0432\u0430"
+      ],
+      "Distance": 610
     }
   }
 ]

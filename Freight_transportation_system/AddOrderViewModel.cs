@@ -21,7 +21,7 @@ namespace Freight_transportation_system
         /////////////////////////////////////////////
         
         public Transport CreatedTransport { get; set; } // ← буде збережено після Save
-        public Cargo Cargo { get; private set; }
+     //   public Cargo Cargo { get; private set; }
         private string weightText; // Змінна для зберігання введеної ваги (в текстовому вигляді, бо юзер вводить рядок)
         private string volumeText;// Аналогічно для об'єму
         public Route CurrentRoute { get; set; } // маєш його створювати перед цим
@@ -211,7 +211,7 @@ namespace Freight_transportation_system
             TransportTypes = new ObservableCollection<TransportOption>
             {
             new TransportOption { Name = "Бус" },
-            new TransportOption { Name = "Фура" },
+            new TransportOption { Name = "Вантажівка" },
             new TransportOption { Name = "Газель" }
             };
             CargoType = new ObservableCollection<TransportOption>
@@ -284,8 +284,8 @@ namespace Freight_transportation_system
            
             if (dto.Transport == "Газель")
                 CreatedTransport = new Gazell(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
-            else if (dto.Transport == "Фура")
-                CreatedTransport = new Track(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
+            else if (dto.Transport == "Вантажівка")
+                CreatedTransport = new Truck(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
             else if (dto.Transport == "Бус")
                 CreatedTransport = new Beads(dto.Transport, double.Parse(dto.Weight), double.Parse(dto.Volume), dto.ConditionType, dto.RouteObject);
         }
@@ -403,5 +403,7 @@ namespace Freight_transportation_system
 
             OnPropertyChanged(nameof(PhoneNumberError));
         }
+
+
     }
 }

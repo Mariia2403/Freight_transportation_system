@@ -84,9 +84,11 @@ namespace Freight_transportation_system
 
         public void SaveOrders()
         {
-            //Якщо користувач позначив замовлення як "Скасовано", воно залишиться у таблиці до закриття.
-            var dtos = TempOrders
-                .Where(o => o.DeliveryStatus != DeliveryStatus.Скасовано)
+            var filtered = TempOrders
+         .Where(o => o.DeliveryStatus != DeliveryStatus.Скасовано)
+         .ToList();
+
+            var dtos = filtered
                 .Select(o => o.ToDTO())
                 .ToList();
 
@@ -100,8 +102,12 @@ namespace Freight_transportation_system
             File.WriteAllText("orders.json", json);
 
             // Після успішного збереження оновлюємо основні Orders
-            Orders = new ObservableCollection<OrderRow>(TempOrders.Select(o => o));
-            _originalOrders = Orders.Select(o => o.ToDTO()).ToList(); // Оновлюємо копію
+            //Orders = new ObservableCollection<OrderRow>(TempOrders.Select(o => o));
+            //_originalOrders = Orders.Select(o => o.ToDTO()).ToList(); // Оновлюємо копію
+
+            Orders = new ObservableCollection<OrderRow>(filtered);
+            TempOrders = new ObservableCollection<OrderRow>(filtered);
+            _originalOrders = dtos;
         }
 
         public void LoadOrders()
@@ -118,6 +124,7 @@ namespace Freight_transportation_system
                 var loadedDtos = JsonSerializer.Deserialize<List<OrderDTO>>(json, options);
                 if (loadedDtos != null)
                 {
+
                     //Відфільтрувати при завантаженні
                     var filteredDtos = loadedDtos
                                        .Where(dto => dto.DeliveryStatus != DeliveryStatus.Скасовано)

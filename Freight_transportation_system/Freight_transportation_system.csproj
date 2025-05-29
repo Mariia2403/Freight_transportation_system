@@ -111,7 +111,7 @@
     <Compile Include="OrderRow.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="RouteSelector.cs" />
-    <Compile Include="Track.cs" />
+    <Compile Include="Truck.cs" />
     <Compile Include="Transport.cs" />
     <Compile Include="TransportOption.cs" />
     <Page Include="AddOrderWindow.xaml">
